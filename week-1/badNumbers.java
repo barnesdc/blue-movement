@@ -22,9 +22,9 @@ public class badNumbers {
      * @param upperBound the max range.
      * @return the longest subset outside of the bad numbers.
      */
-    public static findLongestSubset(int[] array, int lowerBound, int upperBound) {
+    public static int findLongestSubset(int[] array, int lowerBound, int upperBound) {
         // Sort the array for easier traversal
-        Array.sort(array);
+        Arrays.sort(array);
 
         // [1, 2, 3, 7, 10, 15, 18, 30] 
         int max = 0;
@@ -32,7 +32,7 @@ public class badNumbers {
         for (int i = 0; i < array.length; i++) {
             if (array[i] >= lowerBound && array[i+1] <= upperBound) {
                 int diff = array[i] - array[current];
-                System.out.println("Difference = " array[i] " - " + array[current] + " = " + diff);
+                System.out.println("Difference = " + array[i] + " - " + array[current] + " = " + diff);
                 max = Math.max(diff, max);
                 i++;
             }
