@@ -29,14 +29,15 @@ public class badNumbers {
         // [1, 2, 3, 7, 10, 15, 18, 30] 
         int max = 0;
         int current = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] >= lowerBound && array[i+1] <= upperBound) {
-                int diff = array[i] - array[current];
-                System.out.println("Difference = " + array[i] + " - " + array[current] + " = " + diff);
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] >= lowerBound && array[i] <= upperBound) {
+                current = i+1;
+                if (array[current] > upperBound) {
+                    array[current] = upperBound;
+                }
+                int diff = array[current] - array[i];
                 max = Math.max(diff, max);
-                i++;
             }
-            current++;
         }
         return max;
     }
