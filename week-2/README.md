@@ -1,11 +1,22 @@
 # Arrays, Strings (test to follow)
 
 ## Intro
-
-- some info about this week
-- instructor info here?
+- You should have forked and/or pulled down this repository before starting
 - Before you start working, make sure the filename is in format:
   - (i.e. firstName-lastName.py)
+
+## Prompt(s)
+
+- Given a string, find the longest substring which is palindrome. For example, if the given string is "ababad", the output should be "ababa".
+- Given a string str, the task is to print all the permutations of str. A permutation is an arrangement of all or part of a set of objects, with regard to the order of the arrangement. For example, if given "abb", the output should be "abb abb bab bba bab bba"
+
+## Submission
+
+- Make sure your code is in the correct language directory.
+- Push code to your fork
+- Make a Pull Request (PR) to BlueMovement -> Master
+- Request a reveiw from your mentor
+- Optional: Review someone elses PR and make a constructive comment about it.
 
 ## Links
 
@@ -40,16 +51,3 @@
       - https://www.w3schools.com/js/js_arrays.asp
       - https://www.geeksforgeeks.org/arrays-in-javascript/
 
-## Prompt(s)
-
-- Easy
-- Medium
-- Hard
-
-## Submission
-
-- Make sure your code is in the correct language directory.
-- Push code to your fork
-- Make a Pull Request (PR) to BlueMovement -> Master
-- Request a reveiw from your mentor
-- Optional: Review someone elses PR and make a constructive comment about it.
