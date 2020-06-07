@@ -26,22 +26,19 @@ the whole length again. My 2nd loop range has a
 as a reverse step. Going reverse made more sense to me conceptually"""
 
 
-"""Remove this line and doc strings on line 41 for solution
+def palin():
+    string=input()
+    palinSave=""
 
-string=input()
-palinSave=""
-
-for letter in range(0,len(string)):
-    for endletter in range(len(string),0,-1):
-        palinCheck=string[letter:endletter]
-        palinCompare=palinCheck[::-1]
-        if palinCheck==palinCompare:
-        #Now that we found one, check if its the longest 
-            if len(palinCheck)>len(palinSave):
-                palinSave=palinCheck
-print(palinSave)
-
-"""
+    for letter in range(0,len(string)):
+        for endletter in range(len(string),0,-1):
+            palinCheck=string[letter:endletter]
+            palinCompare=palinCheck[::-1]
+            if palinCheck==palinCompare:
+            #Now that we found one, check if its the longest 
+                if len(palinCheck)>len(palinSave):
+                    palinSave=palinCheck
+    print(palinSave)
 
 """
 2. Given a string str, the task is to print all the 
@@ -51,15 +48,17 @@ with regard to the order of the arrangement.
 For example, if given "abb", the output should be 
 "abb abb bab bba bab bba"
 """
-from itertools import permutations
-allperms= list(permutations("abb"))
+def perms():
+    from itertools import permutations
+    string=input()
+    allperms= list(permutations(string))
 
-#Creates a structure with no duplicates
-set_of_all_perms=set(allperms)
+    #Creates a structure with no duplicates
+    set_of_all_perms=set(allperms)
 
-for i in allperms:
-    i="".join(i)
-    print(i)
+    for i in allperms:
+        i="".join(i)
+        print(i)
 
 """I just used python's permutations module from the
 itertools library because I felt like there wasnt a point
@@ -71,42 +70,40 @@ wont add them unless they arent in the list.
 I'd use the factorial length of the string as my length.
 If there are duplicates, Ill cut the size down in half
 This runtime is terrible and I prefer my above solution:
+"""
+def secondSolution (string):
+    import random
 
-import random
-string="addd"
+    total=1
+    for num in range(len(string)+1):
+        if num==0:
+            continue
+        else:
+            total*=num
 
-total=1
-for num in range(len(string)+1):
-    if num==0:
-        continue
-    else:
-        total*=num
+    dupliCheck=dict.fromkeys(string)
+    if len(string)!=len(dupliCheck) :
+        total/=2
 
-dupliCheck=dict.fromkeys(string)
-if len(string)!=len(dupliCheck):
-    total/=2
-
-string= string.replace(""," ")[1:-1]
-string= string.split(" ")
+    string= string.replace(""," ")[1:-1]
+    string= string.split(" ")
 
 
-perms=[]
-random.shuffle(string)
-grabber="".join(string)
-print(grabber)
-perms.append(grabber)
-
-while len(perms)<total:
+    perms=[]
     random.shuffle(string)
     grabber="".join(string)
-    if grabber in perms:
-        pass
-    else:
-        perms.append(grabber)
-        print(perms)
+    print(grabber)
+    perms.append(grabber)
 
-print(len(perms))
+    while len(perms)<total:
+        random.shuffle(string)
+        grabber="".join(string)
+        if grabber in perms:
+            pass
+        else:
+            perms.append(grabber)
+            print(perms)
 
-#Way more work :/
-"""
+    print(len(perms))
 
+    #Way more work :/
