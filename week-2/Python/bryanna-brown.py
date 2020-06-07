@@ -25,18 +25,15 @@ def findPalindrome(string):
 
 
 def longestPalindrome(inputStr):
-    # Check full string
-    if findPalindrome(inputStr):
-        return inputStr
-    else:
-        subStrLength = len(inputStr) - 1
-        for i in range(subStrLength,2,-1):
-            for j in range(0,i):
-                end = j + i
-                if findPalindrome(inputStr[j:end]):
-                    return inputStr[j:end]
-        return "no Palindromes"
+    inputStrLength = len(inputStr)
+    for subStrLength in range(inputStrLength,0,-1):
+        maxStart = inputStrLength - subStrLength
+        for start in range(0,maxStart+1):
+            end = start + (subStrLength)
+            if(findPalindrome(inputStr[start:end])):
+                return inputStr[start:end]
+    return "No Palindromes"
 
 
-out2 = longestPalindrome("basadspopsjis")
+out2 = longestPalindrome("dsfasababad")
 print(out2)    
