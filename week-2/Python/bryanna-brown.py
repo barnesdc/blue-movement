@@ -10,19 +10,23 @@ def findPalindrome(string):
     strLength = len(string)
     if (strLength % 2) == 0:
         strLength = int(strLength / 2) - 1
+        start = strLength + 1
     else:
         strLength = int(strLength // 2) - 1
+        start = strLength + 2
+
     # Reverse String half   
-    flipString = string[strLength:0:-1] + string[0] 
-    if flipString == string[0:strLength+1]:
+    flipString = string[strLength:0:-1] + string[0]
+    if flipString == string[start::]:
         return True
     else:
         return False
 
+
+
 def longestPalindrome(inputStr):
     # Check full string
     if findPalindrome(inputStr):
-        print(findPalindrome)
         return inputStr
     else:
         subStrLength = len(inputStr) - 1
@@ -33,7 +37,6 @@ def longestPalindrome(inputStr):
                     return inputStr[j:end]
         return "no Palindromes"
 
-out1 = findPalindrome("abadad")
-out2 = longestPalindrome("asabad")
-print(out1)
+
+out2 = longestPalindrome("basadspopsjis")
 print(out2)    
