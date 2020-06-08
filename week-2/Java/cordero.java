@@ -102,6 +102,29 @@ public class cordero {
         return max;
     }
 
+    public static void permutations(String input, String out){
+        if (input.length() ==0){
+            System.out.print(out +" ");
+            return;
+        }
+        // loop checks and displays each possible three
+        //(depends on length of input string in the test case it is three)
+        // letter combination for permutations
+        for(int i = 0;i<input.length();i++){
+
+            //ith character of input
+            char c = input.charAt(i);
+            
+            //the rest of the string after removing the ith character
+            String remain  = input.substring(0,i) + input.substring(i+1);
+
+            //recurssive call shifts to the next letter combination to check and display permutations
+            //recurssiva call is exited when the input string is empty
+            permutations(remain,out+c);
+
+        }
+    }
+
     public static void main (String [] args){
         
         String test = "abababad";
@@ -112,6 +135,9 @@ public class cordero {
         System.out.println(out[i]);
             i++;
         }
+
+        String input  = "abb";
+        permutations(input,"");
     }
     
 }
