@@ -3,7 +3,7 @@ public class cordero {
 
 
     public static void main (String [] args){
-        System.out.println("Corderohello");
+        System.out.println("hello");
     }
     
 }
