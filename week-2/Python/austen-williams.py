@@ -1,8 +1,35 @@
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
 
-This is a temporary script file.
+"""
+Week-2 prompts 1 and 2.
+
+Prompts:
+    
+    
+1)  Given a string, find the longest substring which is palindrome. 
+For example, if the given string is "ababad", the output should be "ababa".
+
+
+2)  Given a string str, the task is to print all the permutations of str. 
+    A permutation is an arrangement of all or part of a set of objects, 
+    with regard to the order of the arrangement. For example, if given "abb", 
+    the output should be "abb abb bab bba bab bba"
+    
+    
+    Longest Palindrome:
+    Utilizes Manachers Algortihm that provides O(n) running time by using what
+    is already known about the palindrome. As we traverese the palindrone we
+    use a seperate array to store lengths of the palindrone at a given index.
+    using this array we can predict the next best center  given the length of 
+    previous palindromes. Since a palindrone cannot grow past a certain point
+    to the left you can predict the next best center. For more information see:
+    https://www.geeksforgeeks.org/manachers-algorithm-linear-time-longest-palindromic-substring-part-1/
+    
+    Permutations:
+    Used recursive aproach to perform swaps as the string becomes smaller and
+    then stores all versions of permutations in a list of strings that it then 
+    returns as a single string with all possible permutations.
+    
 """
 
 class Week2:
@@ -51,7 +78,7 @@ class Week2:
             right_pos = (index + lp[index] + 1)
             left_pos = (index - lp[index] - 1)
            
-            #expands the palindrone from center to check for palindrone
+            #expands the palindrone from center to check for palindrome
             while (right_pos < len(stringMod) and left_pos >=0 and 
                    stringMod[right_pos] == stringMod[left_pos]):
                 lp[index] += 1
