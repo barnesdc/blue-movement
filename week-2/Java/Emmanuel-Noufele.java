@@ -48,3 +48,25 @@ public class longestSubstringPalindrome {
 		System.out.println(result);	
 	}
 }
+
+
+public class printAllStringPermutations {
+	
+	public static void findAllPermutations(String input, String result) {	
+		if(input.length() == 0) {
+			System.out.println(result + " ");
+			return;
+		} else {
+			for(int i = 0; i < input.length(); i++) {
+				char inputChar = input.charAt(i);
+				String remaining = input.subSequence(0, i) + input.substring(i + 1);
+				findAllPermutations(remaining, result + inputChar);
+			}
+		}
+	}
+	public static void main(String[] args) {	
+		String input = "IBM";
+		String result = "";
+		findAllPermutations(input, result);
+	}
+}
