@@ -9,6 +9,13 @@ public class longestPalindrome {
     }
 
     public static String longestSub(String pal) {
+        // base case 
+        if (pal == null) {
+            return "Error: Invalid String";
+        }
+        if (pal.length() == 0 || pal.length() == 1) {
+            return pal;
+        }
         // want to go dynamic programming approach
         // loop through "center points"
         // extend left and right for as long as the substring 
