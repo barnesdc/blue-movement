@@ -1,0 +1,33 @@
+def palindrome (): #function name
+  word = input(" What is your word? ")
+  length=len(word)
+  savedPalindrome=""
+
+  for letter in range(0,length):
+  # length= len(word)
+    for endLetter in range(length,0,-1):#starts at the end
+      wordreg =  word[letter:endLetter]
+      #starts in the beginning 'letter'=checks 
+      #the end letter to see if it is a   #palindrome
+      wordrev =  wordreg[::-1]#start:stop:increment(step)
+      if wordreg == wordrev:
+        #print (" Your word is a palindrome ")
+        if len(savedPalindrome)<len(wordreg):
+          savedPalindrome=wordreg
+      #else:
+        #print (" Your word is not a palindrome ")
+  return savedPalindrome
+
+#endingPalindrome=palindrome()
+#print(endingPalindrome)
+
+def permutation():
+    from itertools import permutations
+    string=input("Insert a string: ")
+    allpermutations= list(permutations(string))
+
+    for i in allpermutations:
+        i="".join(i)
+        print(i)
+
+permutation()
