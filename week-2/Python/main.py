@@ -1,3 +1,6 @@
+import itertools
+
+
 def longestPalindrome(s):
     longest = ""
 
@@ -15,3 +18,10 @@ def extend(start, end, s):
         end += 1
 
     return s[start + 1: end]
+
+    # permutations
+    #
+
+
+def permute(s):
+    return list(itertools.permutations(s))
