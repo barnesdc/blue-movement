@@ -1,6 +1,16 @@
 #include <iostream>
-#include <array>
+#include <vector>
+#include <iomanip>
+#include <iterator>
+#include <algorithm>
 using namespace std;
+
+int fact(int n)
+{
+  if(n < 1) return 1;
+  else
+      return n* fact(n-1);
+}
 
 bool isPalindrome(string str){
   int length = str.length();
@@ -11,7 +21,6 @@ bool isPalindrome(string str){
   }
   return true;
 }
-
 string longest_substring(string str){
   int len = str.length(); //13
   int first, len_of_substr = len;
@@ -42,12 +51,31 @@ string longest_substring(string str){
 
   return "";
 }
+void permutations(string s){
+  //vector<char> each_perm = s;
+  int num = fact(s.length());
 
+  for(int i = 0; i< num; i++)
+  {
+    next_permutation(s.begin(),s.end());
+
+    cout<<setw(4)<<i + 1<< ": "<< s << endl;
+
+  }
+
+}
 int main(){
   //cout << (isPalindrome("alab")? "true" : "false");
-  string str = {"lol"}, holder;
+
+  string holder, str;
+  str = "bababa";
   holder = longest_substring(str);
-  cout<<holder;
+  cout<<"The longest substring in "<< str << " is: "<< holder<<endl;
+
+  str = "abcs";
+  cout<< "Permutations for "<< str<< ":\n";
+  permutations(str);
+
   return 0;
 }
 
