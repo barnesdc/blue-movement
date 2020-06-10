@@ -11,11 +11,10 @@ int fact(int n){
 //check if string is palindrome
 bool isPalindrome(string str){
   int length = str.length();
-
+  //comparing letters inward to see if they match
   for(int i = 0; i< length; i++)
     if(str[i] != str[length - i - 1])
       return false;
-
   return true;
 }
 
@@ -27,14 +26,27 @@ string longest_substring(string str){
   bool yes = false;
   string hold = "", s = "";
 
+  /*get all substrings of string from biggest
+  size (size of string) to smallest (1 char).
+  */
   for (int i = 1; i <= len; i++)
   {
     first = 0;
     for(int j = 0; j < i; j++)
     {
+      //length of substring goes from len to 1
       s = str.substr(first, len_of_substr);
+
+      /*
+      //print this to see substring indexes
+      if(last < 10) cout<<' ';
+      cout<<first<<" - "<<last<< "   ";
+      */
+
+      //check if each string is a palindrome
       if(isPalindrome(s))
       {
+        //concatentate hold with each palindrome substring
          hold = hold + s +' ';
          yes = true;
       }
@@ -44,14 +56,15 @@ string longest_substring(string str){
     //if found a palindrome substring return it
     if(yes) return hold;
   }
-
   return "";
 }
 
 //find and print all permutations of string
 void permutations(string s){
+  //find number of permutations
   int num = fact(s.length());
 
+//
   for(int i = 0; i< num; i++)
   {
     next_permutation(s.begin(),s.end());
