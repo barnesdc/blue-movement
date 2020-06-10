@@ -44,8 +44,8 @@ public class longestPalindrome {
                     start = left;
                     maxLength = right - left + 1; 
                 }
-                --left;
-                ++right;
+                --left; // extend left 
+                ++right; // extend right
             }
         }
         
