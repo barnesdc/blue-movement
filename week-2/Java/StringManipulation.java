@@ -56,7 +56,7 @@ public class StringManipulation {
     }
     public static void main(String[] args) {
         String result = longestPalindrome("abaBa");
-        //System.out.println(result);
+        System.out.println(result);
         //In this case, the prefix is an empty string.
         permutationString("abb", "");
     }
