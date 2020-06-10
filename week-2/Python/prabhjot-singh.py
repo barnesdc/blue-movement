@@ -4,9 +4,12 @@ from itertools import permutations
 # Given a string, find the longest substring which is palindrome. 
 # For example, if the given string is "ababad", the output should be "ababa".
 def longestPalindromeSubstring(string):
+  if type(string) is not str:
+    return TypeError('Argument given must of type str')
+
   longest = ''
 
-  # O(n^2), n = length of string
+  # O(n^3), n = length of string
   for i in range(0, len(string) + 1):
     for j in range (1, len(string) + 1):
       candidate = string[i:j]
@@ -25,11 +28,12 @@ def isPalindrome(string):
 # A permutation is an arrangement of all or part of a set of objects, with regard to the order of the arrangement. 
 # For example, if given "abb", the output should be "abb abb bab bba bab bba"
 def allPermutations(string):
+  if type(string) is not str:
+    return TypeError('Argument given must of type str')
 
   # O(n). Easy way using library: https://docs.python.org/3/library/itertools.html#itertools.permutations
   perms = set()
-  permsList = list(permutations(string))  
-  # [('a', 'b', 'b'), ('a', 'b', 'b'), ('b', 'a', 'b'), ('b', 'b', 'a'), ('b', 'a', 'b'), ('b', 'b', 'a')]
+  permsList = list(permutations(string)) # [('a', 'b', 'b'), ('a', 'b', 'b'), ('b', 'a', 'b'), ('b', 'b', 'a'), ('b', 'a', 'b'), ('b', 'b', 'a')]
 
   for perm in permsList:
     perms.add(''.join(perm))
@@ -52,13 +56,22 @@ def allPermutations(string):
 
 
 # Test Cases
+assert(longestPalindromeSubstring('') == '')
+assert(longestPalindromeSubstring('a') == 'a')
 assert(longestPalindromeSubstring('ababad') == 'ababa')
 assert(longestPalindromeSubstring('aaabbd') == 'aaa')
 assert(longestPalindromeSubstring('baaaab') == 'baaaab')
 assert(longestPalindromeSubstring('abc') == 'a')
 assert(longestPalindromeSubstring('caabaad') == 'aabaa')
+assert(type(longestPalindromeSubstring(123)) == TypeError)
 
+assert(allPermutations('') == {''})
+assert(allPermutations('a') == {'a'})
+assert(allPermutations('aaa') == {'aaa'})
+assert(allPermutations('ab') == {'ab', 'ba'})
 assert(allPermutations('abb') == {'abb', 'abb', 'bab', 'bba', 'bab', 'bba'})
 assert(allPermutations('abc') == {'abc', 'acb', 'bac', 'bca', 'cba', 'cab'})
+assert(type(allPermutations(123)) == TypeError)
+
 
 print("All Good!")
