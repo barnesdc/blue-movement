@@ -1,13 +1,9 @@
-<<<<<<< Updated upstream
-=======
 import math
->>>>>>> Stashed changes
 def longestpalindrome(s):
     if (s == ''):
         return None
     fwdlist = list(s)
     revlist = fwdlist[::-1]
-<<<<<<< Updated upstream
     if(fwdlist == revlist):  
         return ''.join(fwdlist) 
     else:
@@ -18,7 +14,6 @@ def longestpalindrome(s):
             else:
                 return ''.join(fwdlist)
     return None
-=======
     fwdlist1 = list(s)
     revlist1 = fwdlist1[::-1]
     longstr = ""
@@ -86,18 +81,14 @@ def swap(swaplst, idx1, idx2):
 
 print(allpermutations("abc"))
 
->>>>>>> Stashed changes
 
 
 
 def main():
     assert longestpalindrome("ababad") == "ababa", "Base Case"
-<<<<<<< Updated upstream
-=======
     assert longestpalindrome("ab") == "", "Not palindrome"
     assert longestpalindrome("bb") == "bb", "Double small"
     assert longestpalindrome("bavava") == "avava", "Reverse at Front"
->>>>>>> Stashed changes
 
 if __name__ == "__main__":
     main()
