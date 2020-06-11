@@ -27,19 +27,34 @@ as a reverse step. Going reverse made more sense to me conceptually"""
 
 
 def palin():
-    string=input()
-    palinSave=""
+    string=input("Add a string: ")
+    if len(string)==1 or string=="":
+        return string
+    #saves first index so if no palindrome this would pass
+    palinSave=string[0]
 
-    for letter in range(0,len(string)):
-        for endletter in range(len(string),0,-1):
-            palinCheck=string[letter:endletter]
+    #init
+    start=0
+    counter=len(string)
+
+    while start< len(string):
+    #for letter in range(0,len(string))
+    #for endletter in range(len(string),0,-1)
+            palinCheck=string[start:counter]
             palinCompare=palinCheck[::-1]
             if palinCheck==palinCompare:
             #Now that we found one, check if its the longest 
                 if len(palinCheck)>len(palinSave):
                     palinSave=palinCheck
-    print(palinSave)
-
+            if counter!=start:
+                counter-=1
+            else:
+                counter=len(string)
+                start+=1
+            
+    return palinSave
+result= palin()
+print(result)
 """
 2. Given a string str, the task is to print all the 
 permutations of str. A permutation is an 
@@ -85,8 +100,7 @@ def secondSolution (string):
     if len(string)!=len(dupliCheck) :
         total/=2
 
-    string= string.replace(""," ")[1:-1]
-    string= string.split(" ")
+    string= list(string)
 
 
     perms=[]
