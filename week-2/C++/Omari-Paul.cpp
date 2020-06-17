@@ -18,7 +18,7 @@ void permute(string str, int l, int r)
 
 void palindrome()
 {
-    char word[100] = "madam";
+    char word[50] = "madam";
     int length = strlen(word);
     int flag = true;
 
