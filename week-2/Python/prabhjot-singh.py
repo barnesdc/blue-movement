@@ -5,7 +5,7 @@ from itertools import permutations
 # For example, if the given string is "ababad", the output should be "ababa".
 def longestPalindromeSubstring(string):
   if type(string) is not str:
-    return TypeError('Argument given must of type str')
+    return TypeError('Argument given must be of type str')
 
   longest = ''
 
@@ -29,7 +29,7 @@ def isPalindrome(string):
 # For example, if given "abb", the output should be "abb abb bab bba bab bba"
 def allPermutations(string):
   if type(string) is not str:
-    return TypeError('Argument given must of type str')
+    return TypeError('Argument given must be of type str')
 
   # O(n). Easy way using library: https://docs.python.org/3/library/itertools.html#itertools.permutations
   perms = set()
