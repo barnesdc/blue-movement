@@ -1,44 +1,70 @@
 
+# Singly Linked List Node Class
+# Each node has two attributes: data, next
+class LinkedListNode:
+  def __init__(self, data, next=None):
+    self.data = data
+    self.next = next
+
+
 # Singly Linked List Class
 # Class has these methods: 
 #   - print(head), prints the data in the linked list starting from head to None
+#   - insertBeginning(data), Inserts a Node at the beginning
+#   - insertEnd(data), Inserts a Node at the end and returns tail ptr
 #   - convertStringToLinkedList(string), Converts a given string to Linked List and returns head,tail dict
+#   - reverse(head), reverses the Linked List and returns the head
 class LinkedList:
-  def __init__(self, data, next=None):
-    self.head = data
-    self.next = next
+  def __init__(self):
+    self.head = None
 
-  @staticmethod
-  def print(linked_list_head):
-    ptr = linked_list_head
+  # Prints the Linked List
+  def print(self):
+    ptr = self.head
     while ptr != None:
       print(ptr.data, end="->")
       ptr = ptr.next
     print(None)
 
-  # Returns pointer to head and tail
+  # Inserts a Node at the beginning of Linked List
+  def insertBeginning(self, data):
+    node = LinkedListNode(data, self.head)
+    self.head = node
+
+  # Inserts a Node at the end of Linked List and returns pointer to tail
+  def insertEnd(self, data):
+    node = LinkedListNode(data)
+    if self.head == None:
+      self.head = node
+      return node
+    ptr = self.head
+    while ptr.next != None:
+      ptr = ptr.next
+    ptr.next = node
+    return node
+
+  # Creates a Linked List from a string and returns pointer to tail
   # Digits are converted to ints before inserting
-  @staticmethod
-  def convertStringToLinkedList(string: str):
+  def convertStringToLinkedList(self, string: str) -> LinkedListNode:
     for idx, char in enumerate(string):
       toInsert = int(char) if char.isdigit() else char
       if idx == 0:
-        ptr = head = LinkedList(toInsert)
+        ptr = self.head = LinkedListNode(toInsert)
       else:
-        ptr.next = LinkedList(toInsert)
+        ptr.next = LinkedListNode(toInsert)
         ptr = ptr.next
-    return {'head': head, 'tail': ptr}
+    return ptr
 
-  @staticmethod
-  def reverse(linked_list_head):
-    ptr = linked_list_head
+  # Reverses the Linked List
+  def reverse(self):
+    ptr = self.head
     prev = None
     while ptr != None:
       next = ptr.next
       ptr.next = prev
       prev = ptr
       ptr = next
-    return prev
+    self.head = prev
 
 
 
@@ -55,28 +81,30 @@ def sumList1(L1: LinkedList, L2: LinkedList) -> LinkedList:
   num1 = num2 = ''
 
   # Convert L1 to int
-  l1Ptr = L1
+  l1Ptr = L1.head
   while l1Ptr != None:
     num1 += str(l1Ptr.data)
     l1Ptr = l1Ptr.next
 
   # Convert L2 to int
-  l2Ptr = L2
+  l2Ptr = L2.head
   while l2Ptr != None:
     num2 += str(l2Ptr.data)
     l2Ptr = l2Ptr.next
 
   # Convert Sum to Linked List
   sum_string = str(int(num1) + int(num2))
-  return LinkedList.convertStringToLinkedList(sum_string)['head']
+  sum_LL = LinkedList()
+  sum_LL.convertStringToLinkedList(sum_string)
+  return sum_LL
 
 
 # Math Solution: Need to reverse the lists though
 def sumList2(L1: LinkedList, L2: LinkedList) -> LinkedList:
-  l1Ptr = LinkedList.reverse(L1)
-  l2Ptr = LinkedList.reverse(L2)
-  sum_head = None
-  prev = None
+  L1.reverse(); L2.reverse()
+  l1Ptr = L1.head
+  l2Ptr = L2.head
+  sum_LL = LinkedList()
   carry = 0
 
   while l1Ptr != None or l2Ptr != None:
@@ -90,16 +118,13 @@ def sumList2(L1: LinkedList, L2: LinkedList) -> LinkedList:
     else:
       carry = 0
 
-    toAdd = LinkedList(digit_sum)
-    if sum_head: prev.next = toAdd  # Add to end if first node exists
-    else: sum_head = toAdd     # Else add as first node
-    prev = toAdd
-
+    sum_LL.insertBeginning(digit_sum)
+  
     if l1Ptr != None: l1Ptr = l1Ptr.next
     if l2Ptr != None: l2Ptr = l2Ptr.next
 
-  if carry > 0: toAdd.next = LinkedList(carry)
-  return LinkedList.reverse(sum_head)
+  if carry > 0: sum_LL.insertBeginning(carry)
+  return sum_LL
 
 
 
@@ -112,7 +137,7 @@ def reverseWordString(linked_list: LinkedList) -> LinkedList:
   stringList = []
 
   # Appends the Linked List string. Each element separated by spaces.
-  ptr = linked_list
+  ptr = linked_list.head
   string = ''
   while ptr != None:
     if ptr.data == ' ':
@@ -125,85 +150,78 @@ def reverseWordString(linked_list: LinkedList) -> LinkedList:
   
   # Reverse and Convert words to Linked List
   for idx, word in enumerate(reversed(stringList)):
-    ll_tuple = LinkedList.convertStringToLinkedList(word)
+    ll_toAdd = LinkedList()
+    ll_toAdd.convertStringToLinkedList(word)
 
     if idx == 0:
-      head = ll_tuple['head']
+      reversed_word_LL = ll_toAdd
     else:
-      ptr.next = ll_tuple['head']
+      tail.next = ll_toAdd.head
 
-    ptr = ll_tuple['tail']
     if idx != len(stringList) - 1:  # Prevent space after last word
-      ptr.next = LinkedList(' ')
-      ptr = ptr.next
+      tail = ll_toAdd.insertEnd(' ')
 
-  return head
+  return reversed_word_LL
 
 
 
 # sumList() Tests
-l1 = LinkedList(5, LinkedList(6, LinkedList(3)))
-l2 = LinkedList(8, LinkedList(4, LinkedList(2)))
-sum1 = sumList1(l1, l2)
-LinkedList.print(sum1)
-sum2 = sumList2(l1, l2)
-LinkedList.print(sum2)
-print()
+nums1 = ['563', '999', '0']
+nums2 = ['842', '1', '9']
 
-l1 = LinkedList(9, LinkedList(9, LinkedList(9)))
-sum1 = sumList1(l1, LinkedList(1))
-LinkedList.print(sum1)
-sum2 = sumList2(l1, LinkedList(1))
-LinkedList.print(sum2)
-print()
+for i in range(len(nums1)):
+  l1 = LinkedList();  l2 = LinkedList()
 
-sum1 = sumList1(LinkedList(0), LinkedList(9))
-LinkedList.print(sum1)
-sum2 = sumList2(l1, LinkedList(1))
-LinkedList.print(sum2)
-print()
+  for digit in nums1[i]:
+    l1.insertEnd(int(digit))
+  for digit in nums2[i]:
+    l2.insertEnd(int(digit))
+
+  print(nums1[i] + ' + ' + nums2[i])
+  sum1_LL = sumList1(l1, l2); print('sumList1: ', end=''); sum1_LL.print()
+  sum2_LL = sumList2(l1, l2); print('sumList2: ', end=''); sum2_LL.print()
+  print()
 
 
 # reverseWordString() Test
-ll_1_head = LinkedList.convertStringToLinkedList('I love Geeks for Geeks')['head']
-LinkedList.print(ll_1_head)
-LinkedList.print(reverseWordString(ll_1_head))
-print()
+sentences = [
+  'I love Geeks for Geeks',
+  'This is an example test !!',
+  'IBMBootCamp',
+  'IBM BootCamp'
+]
 
-ll_2_head = LinkedList.convertStringToLinkedList('This is an example test !!')['head']
-LinkedList.print(ll_2_head)
-LinkedList.print(reverseWordString(ll_2_head))
-print()
-
-ll_3_head = LinkedList.convertStringToLinkedList('IBMBootCamp')['head']
-LinkedList.print(ll_3_head)
-LinkedList.print(reverseWordString(ll_3_head))
-print()
-
-ll_4_head = LinkedList.convertStringToLinkedList('IBM BootCamp')['head']
-LinkedList.print(ll_4_head)
-LinkedList.print(reverseWordString(ll_4_head))
+for sentence in sentences:
+  ll = LinkedList()
+  ll.convertStringToLinkedList(sentence)
+  print('Before:', end='\t');  ll.print()
+  ans = reverseWordString(ll) 
+  print('After:', end='\t');   ans.print()
+  print()
 
 
 '''  Test cases output
-1->4->0->5->None
-1->4->0->5->None
+563 + 842
+sumList1: 1->4->0->5->None
+sumList2: 1->4->0->5->None
 
-1->0->0->0->None
-1->0->0->0->None
+999 + 1
+sumList1: 1->0->0->0->None
+sumList2: 1->0->0->0->None
 
-9->None
-1->0->None
+0 + 9
+sumList1: 9->None
+sumList2: 9->None
 
-I-> ->l->o->v->e-> ->G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s->None
-G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s-> ->l->o->v->e-> ->I->None
+Before: I-> ->l->o->v->e-> ->G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s->None
+After:  G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s-> ->l->o->v->e-> ->I->None
 
-T->h->i->s-> ->i->s-> ->a->n-> ->e->x->a->m->p->l->e-> ->t->e->s->t-> ->!->!->None
-!->!-> ->t->e->s->t-> ->e->x->a->m->p->l->e-> ->a->n-> ->i->s-> ->T->h->i->s->None
+Before: T->h->i->s-> ->i->s-> ->a->n-> ->e->x->a->m->p->l->e-> ->t->e->s->t-> ->!->!->None
+After:  !->!-> ->t->e->s->t-> ->e->x->a->m->p->l->e-> ->a->n-> ->i->s-> ->T->h->i->s->None
 
-I->B->M->B->o->o->t->C->a->m->p->None
-I->B->M->B->o->o->t->C->a->m->p->None
+Before: I->B->M->B->o->o->t->C->a->m->p->None
+After:  I->B->M->B->o->o->t->C->a->m->p->None
 
-I->B->M-> ->B->o->o->t->C->a->m->p->None
-B->o->o->t->C->a->m->p-> ->I->B->M->None
+Before: I->B->M-> ->B->o->o->t->C->a->m->p->None
+After:  B->o->o->t->C->a->m->p-> ->I->B->M->None
 '''
