@@ -1,12 +1,11 @@
 
 # Singly Linked List Class
-# Each node has two attributes: data, next
-# Class has two static methods: 
+# Class has these methods: 
 #   - print(head), prints the data in the linked list starting from head to None
 #   - convertStringToLinkedList(string), Converts a given string to Linked List and returns head,tail dict
 class LinkedList:
   def __init__(self, data, next=None):
-    self.data = data
+    self.head = data
     self.next = next
 
   @staticmethod
@@ -20,7 +19,7 @@ class LinkedList:
   # Returns pointer to head and tail
   # Digits are converted to ints before inserting
   @staticmethod
-  def convertStringToLinkedList(string):
+  def convertStringToLinkedList(string: str):
     for idx, char in enumerate(string):
       toInsert = int(char) if char.isdigit() else char
       if idx == 0:
@@ -29,6 +28,17 @@ class LinkedList:
         ptr.next = LinkedList(toInsert)
         ptr = ptr.next
     return {'head': head, 'tail': ptr}
+
+  @staticmethod
+  def reverse(linked_list_head):
+    ptr = linked_list_head
+    prev = None
+    while ptr != None:
+      next = ptr.next
+      ptr.next = prev
+      prev = ptr
+      ptr = next
+    return prev
 
 
 
@@ -39,7 +49,9 @@ class LinkedList:
 #   L1 = 5 -> 6 -> 3 -> NULL
 #   L2 = 8 -> 4 -> 2 -> NULL
 # Output: 1 -> 4 -> 0 -> 5 -> NULL
-def sumList(L1, L2):
+
+# Int <-> String Conversion Solution
+def sumList1(L1: LinkedList, L2: LinkedList) -> LinkedList:
   num1 = num2 = ''
 
   # Convert L1 to int
@@ -47,18 +59,47 @@ def sumList(L1, L2):
   while l1Ptr != None:
     num1 += str(l1Ptr.data)
     l1Ptr = l1Ptr.next
-  num1 = int(num1)
 
   # Convert L2 to int
   l2Ptr = L2
   while l2Ptr != None:
     num2 += str(l2Ptr.data)
     l2Ptr = l2Ptr.next
-  num2 = int(num2)
 
   # Convert Sum to Linked List
-  sum_string = str(num1 + num2)
+  sum_string = str(int(num1) + int(num2))
   return LinkedList.convertStringToLinkedList(sum_string)['head']
+
+
+# Math Solution: Need to reverse the lists though
+def sumList2(L1: LinkedList, L2: LinkedList) -> LinkedList:
+  l1Ptr = LinkedList.reverse(L1)
+  l2Ptr = LinkedList.reverse(L2)
+  sum_head = None
+  prev = None
+  carry = 0
+
+  while l1Ptr != None or l2Ptr != None:
+    l1_digit = l1Ptr.data if l1Ptr else 0
+    l2_digit = l2Ptr.data if l2Ptr else 0
+
+    digit_sum = l1_digit + l2_digit + carry
+    if digit_sum >= 10:
+      digit_sum = digit_sum - 10
+      carry = 1
+    else:
+      carry = 0
+
+    toAdd = LinkedList(digit_sum)
+    if sum_head: prev.next = toAdd  # Add to end if first node exists
+    else: sum_head = toAdd     # Else add as first node
+    prev = toAdd
+
+    if l1Ptr != None: l1Ptr = l1Ptr.next
+    if l2Ptr != None: l2Ptr = l2Ptr.next
+
+  if carry > 0: toAdd.next = LinkedList(carry)
+  return LinkedList.reverse(sum_head)
 
 
 
@@ -67,7 +108,7 @@ def sumList(L1, L2):
 # - Example: 
 # > Input:  I-> ->l->o->v->e-> ->G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s->NULL
 # > Output: G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s-> ->l->o->v->e-> ->I->NULL
-def reverseList(linked_list):
+def reverseWordString(linked_list: LinkedList) -> LinkedList:
   stringList = []
 
   # Appends the Linked List string. Each element separated by spaces.
@@ -101,47 +142,58 @@ def reverseList(linked_list):
 
 
 # sumList() Tests
-sum1 = sumList(
-  LinkedList(5, LinkedList(6, LinkedList(3))),
-  LinkedList(8, LinkedList(4, LinkedList(2)))
-)
-sum2 = sumList(
-  LinkedList(9, LinkedList(9, LinkedList(9))),
-  LinkedList(1)
-)
-sum3 = sumList(LinkedList(0), LinkedList(9))
-
+l1 = LinkedList(5, LinkedList(6, LinkedList(3)))
+l2 = LinkedList(8, LinkedList(4, LinkedList(2)))
+sum1 = sumList1(l1, l2)
 LinkedList.print(sum1)
+sum2 = sumList2(l1, l2)
 LinkedList.print(sum2)
-LinkedList.print(sum3)
+print()
+
+l1 = LinkedList(9, LinkedList(9, LinkedList(9)))
+sum1 = sumList1(l1, LinkedList(1))
+LinkedList.print(sum1)
+sum2 = sumList2(l1, LinkedList(1))
+LinkedList.print(sum2)
+print()
+
+sum1 = sumList1(LinkedList(0), LinkedList(9))
+LinkedList.print(sum1)
+sum2 = sumList2(l1, LinkedList(1))
+LinkedList.print(sum2)
 print()
 
 
-# reverseList() Test
+# reverseWordString() Test
 ll_1_head = LinkedList.convertStringToLinkedList('I love Geeks for Geeks')['head']
 LinkedList.print(ll_1_head)
-LinkedList.print(reverseList(ll_1_head))
+LinkedList.print(reverseWordString(ll_1_head))
 print()
 
 ll_2_head = LinkedList.convertStringToLinkedList('This is an example test !!')['head']
 LinkedList.print(ll_2_head)
-LinkedList.print(reverseList(ll_2_head))
+LinkedList.print(reverseWordString(ll_2_head))
 print()
 
 ll_3_head = LinkedList.convertStringToLinkedList('IBMBootCamp')['head']
 LinkedList.print(ll_3_head)
-LinkedList.print(reverseList(ll_3_head))
+LinkedList.print(reverseWordString(ll_3_head))
 print()
 
 ll_4_head = LinkedList.convertStringToLinkedList('IBM BootCamp')['head']
 LinkedList.print(ll_4_head)
-LinkedList.print(reverseList(ll_4_head))
+LinkedList.print(reverseWordString(ll_4_head))
 
 
 '''  Test cases output
 1->4->0->5->None
+1->4->0->5->None
+
 1->0->0->0->None
+1->0->0->0->None
+
 9->None
+1->0->None
 
 I-> ->l->o->v->e-> ->G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s->None
 G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s-> ->l->o->v->e-> ->I->None
