@@ -1,4 +1,4 @@
-# Arrays, Strings (test to follow)
+# String Manipulation (test to follow)
 
 ## Intro
 
