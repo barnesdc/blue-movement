@@ -1,0 +1,101 @@
+//---------------------------------------------------------------
+// Project Title:   Week 4 - Prompt 2                           :
+//---------------------------------------------------------------
+// Subj.:           TEST CASES TO ACCOUNT FOR                   :
+//---------------------------------------------------------------
+ ✓ 0.1 ▪︎     Check Catch2 Unit Test Framework is setup and works
+  
+ ✓ 1.1 ▪︎     Can I call the weekFourPromptTwo function?
+ 
+ ✓ 2.1 ▪︎     Get an empty List when I pass in an empty List,
+             L1, into the weekFourPromptTwo function
+    
+ ✓ 3.1 ▪︎     Get a non-empty List when I pass in a non-empty
+             Lists, L1, into the weekFourPromptTwo function
+             with ONLY ascii[a-zA-z] and ascii[space] characters
+             
+ ✓ 4.1 ▪︎     Get an empty List when I pass in a non-empty
+             Lists, L1, into the weekFourPromptTwo function
+             that contains other characters that are NOT
+             ascii[a-zA-z] and ascii[space] characters
+             
+             
+ ✓ 5.1 ▪︎     Given just one word with no spaces, the
+             weekFourPromptTwo function returns the correct
+             reversed sentence value in it's return List
+             ( It ONLY includes ascii[a-zA-z] and ascii[space]
+              characters )
+             
+ ✓ 5.2 ▪︎     Given just one word beginning with a space, the
+             weekFourPromptTwo function returns the correct
+             reversed sentence value in it's return List
+             ( It ONLY includes ascii[a-zA-z] and ascii[space]
+              characters )
+             
+ ✓ 5.3 ▪︎     Given just one word ending with a space, the
+             weekFourPromptTwo function returns the correct
+             reversed sentence value in it's return List
+             ( It ONLY includes ascii[a-zA-z] and ascii[space]
+              characters )
+
+ ✓ 5.4 ▪︎     Given just one word beginning and ending with a space,
+             the weekFourPromptTwo function returns the correct
+             reversed sentence value in it's return List
+             ( It ONLY includes ascii[a-zA-z] and ascii[space]
+             characters )
+            
+            
+ ✓ 6.1 ▪︎     Given a sentence that does not begin and end with
+             a space, the weekFourPromptTwo function returns
+             the correct reversed sentence value in it's
+             return List
+             ( i.e. the sentence can consist of 1 or more spaces
+               becuase between the first and last words there
+               will be in total 2 or more words in the sentence )
+            ( It ONLY includes ascii[a-zA-z] and ascii[space]
+             characters )
+             
+ ✓ 6.2 ▪︎     Given a sentence that begins with a space
+             and does not end with a space, the
+             weekFourPromptTwo function returns
+             the correct reversed sentence value in it's
+             return List
+             ( i.e. the sentence can consist of 1 or more spaces
+               becuase between the first and last words there
+               will be in total 2 or more words in the sentence )
+            ( It ONLY includes ascii[a-zA-z] and ascii[space]
+             characters )
+             
+ ✓ 6.3 ▪︎     Given a sentence that ends with a space
+             and does not begin with a space, the
+             weekFourPromptTwo function returns
+             the correct reversed sentence value in it's
+             return List
+             ( i.e. the sentence can consist of 1 or more spaces
+               becuase between the first and last words there
+               will be in total 2 or more words in the sentence )
+             ( It ONLY includes ascii[a-zA-z] and ascii[space]
+              characters )
+            
+            
+ ✓ 6.4 ▪︎     Given a sentence that begins and ends with
+             a space, the weekFourPromptTwo function returns
+             the correct reversed sentence value in it's
+             return List
+             ( i.e. the sentence can consist of 1 or more spaces
+               becuase between the first and last words there
+               will be in total 2 or more words in the sentence )
+             ( It ONLY includes ascii[a-zA-z] and ascii[space]
+              characters )
+
+ -------------------------------
+     TOTAL TEST CASES == 13
+ -------------------------------
+ 
+ 
+ * NOTE:
+ --------
+ * This list takes only 1 sentence (not a paragraph - i.e. nothing more than 1 line. This means there are NOT multiple lines)
+
+
+
