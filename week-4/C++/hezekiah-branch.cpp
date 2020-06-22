@@ -29,7 +29,9 @@ int main()
 {
     // Solution for Prompt #1
     cout << "Prompt #1" << endl;
-    cout << "Given two numbers represented by two linked lists, write a function " << endl << "that returns sum list. The sum list is a linked list representation" << endl << "of addition of two input numbers.\n" << endl;
+    cout << "Given two numbers represented by two linked lists, write a function " << endl << 
+	"that returns sum list. The sum list is a linked list representation" << endl << 
+	"of addition of two input numbers.\n" << endl;
     // Test case for the first challenge
     vector<int> test1A = {5};
     vector<int> test1B = {9, 4};
@@ -37,7 +39,8 @@ int main()
 
     // Solution for Prompt #2
     cout << "Prompt #2" << endl;
-    cout << "Given a linked list which represents a sentence S such that each node" << "represents a letter, the task is to reverse the sentence without reversing individual words.\n" << endl;
+    cout << "Given a linked list which represents a sentence S such that each node" << 
+	"represents a letter, the task is to reverse the sentence without reversing individual words.\n" << endl;
     // Test case for the second challenge
     const int size = 22;
     char test2A[size] = {
