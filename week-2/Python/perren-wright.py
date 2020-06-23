@@ -4,18 +4,10 @@ def longestpalindrome(s):
         return None
     fwdlist = list(s)
     revlist = fwdlist[::-1]
-    if(fwdlist == revlist):  
-        return ''.join(fwdlist) 
-    else:
-        for i in range(0, len(fwdlist)):
-            if(fwdlist != revlist):
-                fwdlist.pop()
-                revlist.pop(0)
-            else:
-                return ''.join(fwdlist)
-    return None
     fwdlist1 = list(s)
     revlist1 = fwdlist1[::-1]
+    fwdlist2 = list(s)
+    revlist2 = fwdlist2[::-1]
     longstr = ""
     if(fwdlist == revlist):
         longstr = ''.join(fwdlist) 
@@ -30,11 +22,20 @@ def longestpalindrome(s):
             elif(fwdlist1 == revlist1):
                 if(len(''.join(fwdlist1)) > len(longstr)):
                     longstr = ''.join(fwdlist1)
+            elif(fwdlist2 == revlist2):
+                if(len(''.join(fwdlist2)) > len(longstr)):
+                    longstr = ''.join(fwdlist2)
             else:
                 fwdlist.pop()
                 revlist.pop(0)
                 fwdlist1.pop(0)
-                revlist1.pop()      
+                revlist1.pop()
+                if(len(fwdlist2) > 2):
+                    fwdlist2.pop(0)
+                    fwdlist2.pop()
+                    revlist2.pop(0)
+                    revlist2.pop() 
+    print(longstr)     
     return longstr
 
 def allpermutations(str):
@@ -89,6 +90,7 @@ def main():
     assert longestpalindrome("ab") == "", "Not palindrome"
     assert longestpalindrome("bb") == "bb", "Double small"
     assert longestpalindrome("bavava") == "avava", "Reverse at Front"
+    assert longestpalindrome("bavavac") == "avava", "Both ends"
 
 if __name__ == "__main__":
     main()
