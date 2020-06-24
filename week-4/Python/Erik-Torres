@@ -1,4 +1,4 @@
-# Given two numbers represented by two linked lists, write a function that returns sum list. The sum list is linked list representation of adition of two input numbers.
+# Given two numbers represented by two linked lists, write a function that returns sum list. The sum list is linked list representation of addition of two input numbers.
 
 class ListNode:
 	def __init__(self, data):
