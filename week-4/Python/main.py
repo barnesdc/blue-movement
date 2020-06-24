@@ -82,13 +82,13 @@ while stack1 and stack2:
 
 while stack1:
     if carry:
-    resultstack.append(carry)
-    carry = 0
+        resultstack.append(carry)
+        carry = 0
     resultstack.append(stack1.pop())
 while stack2:
     if carry:
-    resultstack.append(carry)
-    carry = 0
+        resultstack.append(carry)
+        carry = 0
     resultstack.append(stack1.pop())
 
 #add new stack as a linked list
