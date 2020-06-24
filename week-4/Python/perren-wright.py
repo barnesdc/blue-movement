@@ -33,6 +33,13 @@ class LinkedList:
         temp.next = self.head
         self.head = temp 
     
+    def insertafter(self, ptr, item):
+        temp = Node(item)
+        after = ptr.next
+        ptr.next = temp
+        temp.next = after
+        return temp
+      
     #removed from end
     def pop(self):
         if(self.head != None):
@@ -93,7 +100,37 @@ def sumlst(lst1, lst2):
         if(carry == 1 and i == lgth-1):
             totlist.append(carry)
     return totlist        
-        
+
+def revsent(lst):
+    revsnct = LinkedList()
+    ptr = lst.head
+    lenlst = lst.lgth()
+    spacebefore = False
+    prev = None  
+    for i in range(0, lenlst):
+        if (i == 0):
+            revsnct.append(ptr.data)
+            prev = revsnct.head
+        elif(ptr.data == " "):
+            revsnct.prepend(ptr.data)
+            spacebefore = True
+            prev = revsnct.head
+        else:
+            if(spacebefore == False):
+                prev = revsnct.insertafter(prev, ptr.data)
+            else:
+                revsnct.prepend(ptr.data)
+                prev = revsnct.head
+                spacebefore = False 
+        ptr = ptr.next
+    return revsnct
+
+def fillList(str):
+    lst = LinkedList()
+    for i in str:
+        lst.append(i)
+    return lst
+
 def main():
     lst1 = LinkedList()
     lst2 = LinkedList()
@@ -105,6 +142,10 @@ def main():
     lst2.append(2)
     smlst = sumlst(lst1, lst2)
     smlst.printList()
+
+    lst3 = fillList("I love Geeks for Geeks")
+    rs = revsent(lst3)
+    rs.printList()
 
 if __name__ == "__main__":
     main()                      
