@@ -1,4 +1,4 @@
-class cordero { 
+public class cordero { 
   
     //static Node head; 
   
