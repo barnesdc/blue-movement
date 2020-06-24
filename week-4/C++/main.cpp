@@ -1,3 +1,4 @@
+//I cant get the information into the linkedlist
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -15,12 +16,12 @@ string getSumofList(Node*list1){
   if(list1 == NULL) return "";
   else return to_string(list1->val) + getSumofList(list1->next);
 }
-//insert nodes at beginning of list
+
+//insert nodes at beginning of list. (inserts list backwardS)
 void insertFirst(Node*&sumList, int num, char c){
 	Node * newnode = new Node;
 	newnode->val = num;
   newnode->ch = c;
-
   //first entry
   if(sumList == NULL)
 	   newnode->next = NULL;
@@ -60,22 +61,21 @@ void print2(Node*printL){
   }
   cout<<"null";
 }
-
-
+//get string from list
 string getString(Node*head){
   Node*current = head;
   if(current == NULL)return "";
   else return current->ch +getString(current->next) ;
 }
-
-void insertStringFirst(Node*&c, string hold){
-  for(int i = hold.length()-1; i>= 0; i--){
+//each word is sent here and put into the list.
+void insertStringFirst(Node*c, string hold){
+  for(int i = hold.length()-1 ; i >= 0; --i)
     insertFirst(c, 0, hold[i]);
-  }
 }
 
-Node * reverseList(string s){
-  Node * c;
+//find spaces in string to seperate all words
+void reverseList(Node*list1 , string s){
+	Node*c = list1;
   string hold = "";
   int spaceLoc = 0, len = s.length();
   for(int i = 0; i< len; i++)
@@ -83,17 +83,14 @@ Node * reverseList(string s){
     spaceLoc = s.find(' '); //find space
     i = 0;
     if(spaceLoc != string::npos){ //if found a space
-      hold = s.substr(i,spaceLoc ); //send string and space
+      hold = s.substr(i,spaceLoc); //send string and space
     } else { //at end
       hold = s.substr(i, spaceLoc -i-1); //only send string
       i = len;
     }
     insertStringFirst(c, hold);
-    return c;
-    //all the value are right but c isnt recieving input
     s = s.substr(spaceLoc +1, len-spaceLoc);
   }
-  return c;
 }
 
 int main(){
@@ -110,11 +107,7 @@ int main(){
       insertFirst(two, 8,'\0');
   sum = makeSumList(one, two);
   cout<< "Adding two lists together: " <<endl;
-  print(one);
-  cout<<" + ";
-  print(two);
-  cout<< " = ";
-  print(sum);
+  print(one); cout<<" + "; print(two); cout<< " = "; print(sum);
 
 
   cout<<"\n\n\tPrompt 2:" <<endl;
@@ -126,14 +119,14 @@ int main(){
   for(int i = len -1 ; i >=0; --i)
       insertFirst(one, 0, in[i]);
 
-  cout<<"\n Print after insertion: ";
+  cout<<"\n Print after insertion.\n ";
   print2(one);
+
   //reverse string
   string str = getString(one);
-  cout<<endl;
-  two = reverseList(str);
-
-  cout<<"\n Print after reversal: ";
-  print2(two);
+  reverseList(one, str);
+//print new string
+  cout<<"\n Print after reversal. \n ";
+  print2(one);
 	return 0;
 }
