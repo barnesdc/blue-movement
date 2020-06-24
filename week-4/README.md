@@ -6,7 +6,20 @@
   - (i.e. firstName-lastName.py)
 
 ## Prompt(s)
-
+- Given two numbers represented by two linked lists, write a function that returns sum list. The sum list is linked list representation of addition of two input numbers.
+```
+  - Example: 
+  Input:
+    L1 = 5 -> 6 -> 3 -> NULL
+    L2 = 8 -> 4 -> 2 -> NULL
+  Output: 1 -> 4 -> 0 -> 5 -> NULL
+  ```
+- Given a Linked List which represents a sentence S such that each node represents a letter, the task is to reverse the sentence without reversing individual words.
+```
+  - Example: 
+  > Input:  I-> ->l->o->v->e-> ->G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s->NULL
+  > Output: G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s-> ->l->o->v->e-> ->I->NULL
+```
 ## Submission
 
 - Make sure your code is in the correct language directory.
