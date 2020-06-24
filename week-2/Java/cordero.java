@@ -1,4 +1,6 @@
 
+import java.util.Arrays;
+
 public class cordero {
 
     public static boolean isPalindrome(String test){
