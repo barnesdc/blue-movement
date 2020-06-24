@@ -81,12 +81,15 @@ while stack1 and stack2:
     resultstack.append(sum)
 
 while stack1:
-    resultstack.append(stack1.pop())
-while stack2:
-    resultstack.append(stack1.pop())
-if carry:
+    if carry:
     resultstack.append(carry)
     carry = 0
+    resultstack.append(stack1.pop())
+while stack2:
+    if carry:
+    resultstack.append(carry)
+    carry = 0
+    resultstack.append(stack1.pop())
 
 #add new stack as a linked list
 result = LinkedList()
