@@ -90,7 +90,10 @@ while stack2:
         resultstack.append(carry)
         carry = 0
     resultstack.append(stack1.pop())
-
+if carry:
+        resultstack.append(carry)
+        carry = 0
+        
 #add new stack as a linked list
 result = LinkedList()
 while resultstack:
