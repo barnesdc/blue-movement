@@ -132,3 +132,130 @@ public class AddTwoNumbersLinkedList {
 	}
 
 }
+
+package hackerrsnk;
+
+
+public class reverseSentence {	
+	public static class ListNode {
+		char data;
+		ListNode next;
+		ListNode(char val) {
+			data = val;
+			next = null;
+		}
+	}
+	
+	public void printLinkedList(ListNode node) {
+		ListNode temp = node;
+		while(temp != null) {
+			System.out.format("%c", temp.data);
+			temp = temp.next;
+		}
+	}
+	
+	public static ListNode getLinkedListFromString(String str) {
+		ListNode result = null;
+		ListNode temp = null;
+		
+		for(int i = 0; i < str.length(); i++) {
+			char c = str.charAt(i);
+			ListNode node = new ListNode(c);
+			if(result == null) {
+				result = node;
+				temp = result;
+			} else {
+				temp.next = node;
+				temp = temp.next;
+			}
+		}
+		return result;
+	}
+	
+	public static ListNode reverseWords(ListNode node) {
+		if (node == null) {
+			return node;
+		}
+		// variable to track the start position of a word
+		ListNode start = null;
+		// variable to track the end of the sentence
+		ListNode end = null;
+		// variable to track starting position of the sentence
+		ListNode temp = null;
+		
+		// Initialize start to the first character
+		start = node;
+		
+		while (node != null && node.data != ' ') {
+			// keep track of the previous node with previous character
+			end = node;
+			node = node.next;
+		}
+		
+		// Case when the sentence is just one word
+		if(node == null) {
+			node = start;
+			return node;
+		}
+		
+		// flag to check when we are done
+		boolean done = false;
+		
+		while (done == false) {
+			
+			//swap the space to the beginning of the word
+			ListNode temp1 = node.next;
+			node.next = start;
+			start = node;
+			node = temp1;
+			
+			ListNode prev = null;
+			
+			//set the beginning of the remaining sentence
+			temp = node;
+			
+			// repeat the process until we get the next space
+			while (node != null && node.data != ' ') {
+				prev = node;
+				node = node.next;
+			}
+			// make the new space point to the previous space
+			prev.next = start;
+			
+			// the new space should point to the beginning of the sentence
+			start = temp;
+			if(node == null) {
+				done = true;
+			}
+		}
+		
+		//set the head to the new sentence
+		node = temp;
+		
+		// set the last node next to null
+		end.next = null;
+		return node;
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		reverseSentence inst = new reverseSentence();
+		
+		String str = "I love Geeks for Geeks";
+		
+		ListNode list = getLinkedListFromString(str);
+		
+		System.out.print("Original string: ");
+		inst.printLinkedList(list);
+		
+		ListNode result = reverseWords(list);
+		
+		System.out.println();
+		System.out.print("Reverse string: ");
+		inst.printLinkedList(result);
+		
+		
+	}
+
+}
+
