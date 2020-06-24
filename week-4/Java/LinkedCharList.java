@@ -10,16 +10,16 @@ class LinkedCharList {
             prev = null;
         }
     }
-    public void insert(Node n) {
+    public void insert(Node nd) {
         if (this.head == null) {
-            this.head = n;
+            this.head = nd;
         } else {  
              Node pointer = this.head;
             while (pointer.next != null) {
                 pointer = pointer.next;
             }
-            pointer.next = n;
-            n.prev = pointer;
+            pointer.next = nd;
+            nd.prev = pointer;
         }
     }
     LinkedCharList(String s) {
