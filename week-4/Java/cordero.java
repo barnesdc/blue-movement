@@ -1,4 +1,4 @@
-class LinkedList { 
+class cordero { 
   
     //static Node head; 
   
