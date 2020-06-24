@@ -20,7 +20,7 @@ def longestPalindromicSubstring(s):
     return s[start:start + max_length]
 
 
-print(longestPalindromicSubstring("ababa"))
+print(longestPalindromicSubstring("rrhjrghrg"))
 
 
 def permutations(string, step=0):
@@ -33,6 +33,6 @@ def permutations(string, step=0):
         permutations(string_copy, step + 1)
 
 
-print(permutations('abb'))
+print(permutations('yyuuuiikvgfrreio'))
 
 # C:\Users\olawa\AppData\Local\Programs\Python\Python38-32
