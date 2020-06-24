@@ -1,17 +1,11 @@
-# Algorithms (Sorting, Search, etc)
+# Stacks & Queues
 
 ## Intro
 
-- some info about this week
-- instructor info here?
 - Before you start working, make sure the filename is in format:
-  - (i.e. first.last.py)
+  - (i.e. firstName-lastName.py)
 
 ## Prompt(s)
-
-- Easy
-- Medium
-- Hard
 
 ## Submission
 
