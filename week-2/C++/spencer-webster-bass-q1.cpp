@@ -3,10 +3,12 @@
 
 // using namespace std;
 
-void permutationsUtil(int depth, std::string str, std::vector<bool> vis, std::vector<int> stk, std::vector<std::string>& acc)
+// inspired by DFS
+void permutationsUtil(int depth, std::string& str, std::vector<bool> vis, std::vector<int> stk, std::vector<std::string>& acc)
 {
 	int n = vis.size();
 
+	// leaf node
 	if (depth == n) {
 		std::string s = "";
 		for (int i : stk)
@@ -35,9 +37,11 @@ std::vector<std::string> permutations(std::string str)
 	std::vector<int> stk;
 	std::vector<std::string> acc;
 	permutationsUtil(0, str, vis, stk, acc);
-  return acc;
+  	return acc;
 }
 
+// look at saving space by using pointers and references especially with using the recurisve stack
+// you can just print the solution instead of storing it
 int main(int argc, char const *argv[]) {
 	std::cout << "Given a string str, the task is to print all the permutations of str. A permutation is an arrangement of all or part of a set of objects, with regard to the order of the arrangement. For example, if given abb, the output should be abb abb bab bba bab bba" << std::endl;
 
