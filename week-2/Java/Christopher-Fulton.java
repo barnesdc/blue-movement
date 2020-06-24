@@ -19,48 +19,78 @@ class Week2{
 
 
     
-    public static String  maxPalindrone(String str) {
-        str = str.replaceAll("\\s",""); // replace all spaces and turn upper to lower case for simplicity
-        str = str.toLowerCase();
-        StringBuilder tempStr = new StringBuilder();
-        StringBuilder tempBuilder = new StringBuilder();
-        String maxSubstring ="";
-        for(int i = 0;i<str.length();i++){
-            for (int j = i+1; j<=str.length(); j++){
-                tempStr.append(str.substring(i,j)); // find all substrings of str 
-                tempBuilder.append(tempStr.toString());// temp variable to hold object 
-                if(tempStr.toString().equals(tempBuilder.reverse().toString()) && tempBuilder.length() > maxSubstring.length()){
-                    maxSubstring = tempStr.toString();// Check wheter or not substring is a palindrone and ifso if it's largest.
-                }
-                tempStr.setLength(0);// Reset string objects 
-                tempBuilder.setLength(0);
-            }
-        }
+//     public static String  maxPalindrone(String str) {
+//         str = str.replaceAll("\\s",""); // replace all spaces and turn upper to lower case for simplicity
+//         str = str.toLowerCase();
+//         StringBuilder tempStr = new StringBuilder();
+//         StringBuilder tempBuilder = new StringBuilder();
+//         String maxSubstring ="";
+//         for(int i = 0;i<str.length();i++){
+//             for (int j = i+1; j<=str.length(); j++){
+//                 tempStr.append(str.substring(i,j)); // find all substrings of str 
+//                 tempBuilder.append(tempStr.toString());// temp variable to hold object 
+//                 if(tempStr.toString().equals(tempBuilder.reverse().toString()) && tempBuilder.length() > maxSubstring.length()){
+//                     maxSubstring = tempStr.toString();// Check wheter or not substring is a palindrone and ifso if it's largest.
+//                 }
+//                 tempStr.setLength(0);// Reset string objects 
+//                 tempBuilder.setLength(0);
+//             }
+//         }
 
-return maxSubstring;
-    }
+// return maxSubstring;
+//     }
     public static void main(String[] args) {
          //////////////////////Interface/////////////////////////////////////////////////////
         Scanner in = new Scanner(System.in);
 
-        System.out.println("To check for Palindron enter: 1");
-        System.out.println("To print all permutations 2");
-        String choice = in.nextLine();
-        if (choice.equals("1")) {
-            System.out.println("Enter string");
-            String str = in.nextLine();
-            System.out.println( "Largest palidrone: ");
-            System.out.println(maxPalindrone(str));
-        } else if (choice.equals("2")) {
-            System.out.println("Enter String ");
-            String str = in.nextLine();
-            System.out.println("All permutations of " + str + ":"  );
-            permutation("",str);
+        String  a = "a";
+        String b = "b";
+        System.out.println(b.compareTo(a));
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // String str = "ABC";
+        // for (int i = str.length()-1;i>0;i--){
+        //     for (int j = i -1; j<str.length()-1; j++){
+        //         System.out.println(str.substring(j, i));
+        //     }
+        // }
+
+    //     System.out.println("To check for Palindron enter: 1");
+    //     System.out.println("To print all permutations 2");
+    //     String choice = in.nextLine();
+    //     if (choice.equals("1")) {
+    //         System.out.println("Enter string");
+    //         String str = in.nextLine();
+    //         System.out.println( "Largest palidrone: ");
+    //         System.out.println(maxPalindrone(str));
+    //     } else if (choice.equals("2")) {
+    //         System.out.println("Enter String ");
+    //         String str = in.nextLine();
+    //         System.out.println("All permutations of " + str + ":"  );
+    //         permutation("",str);
             
-        }
-        else {
-            System.out.println("Incorrect choice");
-        }
-    in.close();
-    }
+    //     }
+    //     else {
+    //         System.out.println("Incorrect choice");
+    //     }
+    // in.close();
+     }
 }
