@@ -1,4 +1,4 @@
-# Arrarys
+# Search
 
 ## Intro
 
