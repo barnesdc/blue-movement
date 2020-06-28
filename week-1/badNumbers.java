@@ -9,6 +9,7 @@ public class badNumbers {
     */
     public static void main(String[] args) {
         int[] array = {7, 18, 2, 30, 1, 10, 3, 15};
+        int [] arr = {37,7,22,15,49,60};
         
         int lengthLongestSubset = findLongestSubset(array, 3, 26);
 
