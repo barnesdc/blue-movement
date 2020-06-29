@@ -40,6 +40,25 @@ public class AnthoniaUjuDuru {
     }
 
     /**
+     * 
+     * @param list to be reversed
+     * @return reversed list
+     */
+    public static LinkedList<Character> reverseList(LinkedList<Character> list) {
+        // convert to array to loop from the back 
+        Character[] listArray = list.toArray(new Character[list.size()]);
+
+        // create LinkedList to reverse
+        LinkedList<Character> reverseList = new LinkedList<Character>();
+
+        for (int i = listArray.length - 1; i >= 0; i--) {
+            reverseList.add(listArray[i]);
+        }
+        
+        return reverseList;
+    }
+
+    /**
      * The main function
      * @param args Not used.
      */
@@ -68,7 +87,34 @@ public class AnthoniaUjuDuru {
 
         // Problem 2
         // create linkedlists for second problem
-        
+        LinkedList<Character> link1 = new LinkedList<Character>();
+
+        link1.add('I');
+        link1.add(' ');
+        link1.add('l');
+        link1.add('o');
+        link1.add('v');
+        link1.add('e');
+        link1.add(' ');
+        link1.add('G');
+        link1.add('e');
+        link1.add('e');
+        link1.add('k');
+        link1.add('s');
+        link1.add(' ');
+        link1.add('f');
+        link1.add('o');
+        link1.add('r');
+        link1.add(' ');
+        link1.add('G');
+        link1.add('e');
+        link1.add('e');
+        link1.add('k');
+        link1.add('s');
+
+        LinkedList<Character> linkReverse = reverseList(link1);
+
+        System.out.println(linkReverse);
     }
 
 
