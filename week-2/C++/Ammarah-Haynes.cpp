@@ -2,6 +2,7 @@
 #include <string>
 using namespace std;
 
+//palindrome
 int main(){
   string str = "ebcdcbn";
   int len = str.size()- 1;
@@ -14,11 +15,11 @@ int main(){
       --j;
     }
     else{
-      str.erase(str[i]);
-      str.erase(str[j]);
+
     }
   }
   cout << str;
 
   return 0;
 }
+//Permutations
