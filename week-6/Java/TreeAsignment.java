@@ -20,7 +20,7 @@ public class TreeAsignment{
      ls.add(parent.data-child.data);
      Subtract(parent,parent.right,ls);
      Subtract(child,child.left,ls);
-     
+  }
     
 
 
