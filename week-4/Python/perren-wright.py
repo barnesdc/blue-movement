@@ -94,11 +94,11 @@ def sumlst(lst1, lst2):
         val1 = lst1.pop()
         val2 = lst2.pop()
         sm = (val1 + val2) % 10
-        totlist.append(sm + carry)
+        totlist.prepend(sm + carry)
         carry = (val1 + val2) // 10
         #case if an extra digit needs to be added to the front
         if(carry == 1 and i == lgth-1):
-            totlist.append(carry)
+            totlist.prepend(carry)
     return totlist        
 
 def revsent(lst):
@@ -143,9 +143,9 @@ def main():
     smlst = sumlst(lst1, lst2)
     smlst.printList()
 
-    lst3 = fillList("I love Geeks for Geeks")
-    rs = revsent(lst3)
-    rs.printList()
+    #lst3 = fillList("I love Geeks for Geeks")
+    #rs = revsent(lst3)
+    #rs.printList()
 
 if __name__ == "__main__":
     main()                      
