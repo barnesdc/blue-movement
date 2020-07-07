@@ -1,4 +1,4 @@
-# Recursion
+# Group Project Working Sessions
 
 ## Intro
 

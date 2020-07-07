@@ -1,4 +1,4 @@
-# Dictionaries & Hashmaps
+# Trees
 
 ## Intro
 
@@ -14,31 +14,34 @@
 - Make a Pull Request (PR) to BlueMovement -> Master
 - Request a reveiw from your mentor
 - Optional: Review someone elses PR and make a constructive comment about it.
--
 
 ## Links
 
-- Video Enablements
-  - HR "Hash Tables" Overview
-    - https://www.youtube.com/watch?v=shs0KM3wKv8
-  - "Hash Tables and Hash Functions"
-    - https://www.youtube.com/watch?v=KyUTuwz_b7Q
-  - HR Prep Kit Dictionaries & Hashmaps questions
-    - https://www.hackerrank.com/interview/interview-preparation-kit/dictionaries-hashmaps/challenges
-- Websites
-  - Python Resources
-    - Dictionary Methods
-      - https://www.geeksforgeeks.org/python-dictionary/
-      - https://www.geeksforgeeks.org/dictionary-methods-in-python-set-1-cmp-len-items
-      - https://www.geeksforgeeks.org/dictionary-methods-in-python-set-2-update-has_key-fromkeys/
-  - Java Resources
-    - Hashmaps in Java
-      - https://www.geeksforgeeks.org/java-util-hashmap-in-java/
-      - https://www.geeksforgeeks.org/java-util-hashmap-in-java-with-examples/
-    - Hashmaps vs Hashtables in Java
-      - https://www.geeksforgeeks.org/differences-between-hashmap-and-hashtable- in-java/
-    - Javascript Resources
-      - Maps in Javascript
-        - https://www.geeksforgeeks.org/map-in-javascript/
-      - Map and Set in Javascript
-        - https://javascript.info/map-set
+- HR Prep Kit Trees questions
+  - <https://www.hackerrank.com/interview/interview-preparation-kit/trees/challenges>
+
+- HR Practice Problems
+  - <https://www.hackerrank.com/domains/data-structures?filters%5Bsubdomains%5D%5B%5D=trees>
+
+- Resources
+  - Trees Introduction - GeeksforGeeks
+    - <https://www.geeksforgeeks.org/binary-tree-set-1-introduction/>
+
+  - Binary Tree Module in Python
+    - <https://www.geeksforgeeks.org/binarytree-module-in-python/>
+
+  - C++ Resources Tree C/C++ Programs
+    - <https://www.geeksforgeeks.org/c-programs-gq/tree-programs-gq/>
+
+  - Free Code Camp “All you Need to Know About Tree DS”
+    - <https://www.freecodecamp.org/news/all-you-need-to-know-about-tree-data-structures-bceacb85490c/>
+
+  - “4 Data Structures that Every New Developer Should Know"
+    - <https://learntocodewith.me/posts/data-structures/>
+
+  - “How to Not be Stumped by Trees”
+    - <https://medium.com/basecs/how-to-not-be-stumped-by-trees-5f36208f68a7>
+
+  - HackerEarth Trees Tutorial
+    - <https://www.hackerearth.com/practice/python/getting-started/input-and-output/tutorial/>
+  
