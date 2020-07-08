@@ -1,12 +1,13 @@
 # Given two numbers represented by two linked lists, write a function that returns sum list. The sum list is linked list representation of addition of two input numbers.
 
+# class for a node in linked list
 class ListNode:
 	def __init__(self, data):
 		self.data = data
 		self.next = None
 
 
-
+# method that creates a linked list-1
 def createList1():
 	head = ListNode(5)
 	head.next = ListNode(6)
@@ -14,7 +15,7 @@ def createList1():
 	return head
 
 
-
+# method that creates a linked list-2
 def createList2():
 	head = ListNode(8)
 	head.next = ListNode(4)
@@ -22,7 +23,7 @@ def createList2():
 	return head
 
 
-
+# method that prints the linked list
 def printList(head):
 	while head is not None:
 		print(head.data, end=' -> ')
@@ -30,7 +31,7 @@ def printList(head):
 	print("NULL")
 
 
-
+# method that reverses the linked list
 def reverseList(head):
 	if head is None or head.next is None:
 		return head
@@ -45,7 +46,7 @@ def reverseList(head):
 	return prev_node
 
 
-
+# method that performes the sum of 2 linkedlists
 def get_sum(list1, list2):
 	head1 = reverseList(list1)
 	head2 = reverseList(list2)
@@ -79,7 +80,7 @@ def get_sum(list1, list2):
 	return reverseList(head.next)
 
 
-
+# test case
 list1 = createList1()
 list2 = createList2()
 printList(list1)
@@ -89,13 +90,14 @@ printList(sum_list)
 
 #Given a Linked List which represents a sentence S such that each node represents a letter, the task is to reverse the sentence without reversing individual words.
 
+# class for a node in linked list
 class ListNode:
 	def __init__(self, data):
 		self.data = data
 		self.next = None
 
 
-
+# method that creates a linked list
 def createList():
 	head = ListNode('I')
 	head.next = ListNode(' ')
@@ -124,7 +126,7 @@ def createList():
 	return head
 
 
-
+# method that prints the linked list
 def printList(head):
 	while head is not None:
 		print(head.data, end=' -> ')
@@ -132,7 +134,7 @@ def printList(head):
 	print("NULL")
 
 
-
+# method that reverses the words in list
 def reverseList(words):
 	start = 0
 	end = len(words) - 1
@@ -144,23 +146,27 @@ def reverseList(words):
 		end -= 1
 
 
-
+# method that reverses the words in linked list
 def reverseWords(head):
 	temp = head
 
+	# store entire linked list as a string
 	string = ""
 	while temp is not None:
 		string += temp.data
 		temp = temp.next
 
-
+	# split the string into words
 	words = string.split(" ")
 
+	# reverse the words in list
 	reverseList(words)
 
+	# join words into a string
 	string = " ".join(words)
 	index = 0
 
+	# add string data into linked list
 	while head is not None:
 		head.data = string[index]
 		index += 1
