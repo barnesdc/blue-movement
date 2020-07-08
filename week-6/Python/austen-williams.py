@@ -70,7 +70,6 @@ class Week6:
     def __init__(self):
         'initializes answer to be returned for maxDiff function'
         self.ans = 0
-        self.masterList = []
     
     def maxDiff(self, node):
         'Function that calculates the maximum difference of a child and its decendents'
