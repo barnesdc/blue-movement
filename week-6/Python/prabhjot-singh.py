@@ -123,22 +123,22 @@ def maxDiff(root: Node) -> int:
 # Write an algorithm to print leaf to root path for every leaf node of the binary tree.
 # https://ibb.co/G7sZnDZ
 def printLeafToRootPaths(root: Node):
-  queue = deque()
+  stack = deque()
 
-  def recurse(root, q):
+  def recurse(root, stk):
     if root is None: return
-    q.append(root.data)
+    stk.append(root.data)
 
     if root.left is None and root.right is None:
-      for i in range(len(queue) - 1):
-        print(q[-i-1], end='->')
-      print(q[0])
+      for i in range(len(stk) - 1):
+        print(stk[-i-1], end='->')
+      print(stk[0])
 
-    recurse(root.left, q)
-    recurse(root.right, q)
-    q.pop() # ! Need to remove current node once both left and right subtrees are explored
+    recurse(root.left, stk)
+    recurse(root.right, stk)
+    stk.pop() # ! Need to remove current node once both left and right subtrees are explored
 
-  recurse(root, queue)
+  recurse(root, stack)
 
 
 
