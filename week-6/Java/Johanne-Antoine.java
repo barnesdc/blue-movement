@@ -17,11 +17,23 @@ class BinaryTree {
     BinaryTree()  { 
         root = null; 
     } 
-    
+    static int findMax(Node root) {
+        if (root == null) {
+            return -1;
+        } else {
+            int r = root.data;
+            if (root.left == null && node.right == null) {
+                return r;
+            } else {
+                r = Math.max(r, findMax(root.left));
+                r = Math.max(r, findMax(root.right));
+            }
+        }
+    }
     static int maxDiff(Node root) {
         // assume difference can be positive or negative
         int diff = 0;
-        if (root.left == null && root.right == null || root == null) {
+        /* if (root.left == null && root.right == null || root == null) {
             return diff;
         } else {
             //postorder iterator
@@ -42,7 +54,8 @@ class BinaryTree {
                 }
 
             }
-        }
+        } */
+        
         return diff;
     }
     static void printLeafToRoot(Node root, StringBuilder tree) {
@@ -89,7 +102,7 @@ class BinaryTree {
         printLeafToRoot(bt.root, s);
         Node newTree = mirror(bt.root);
         printLeafToRoot(newTree, s);
-        System.out.println(maxDiff(bt.root));
+        System.out.println("Maximum: " + findMax(bt.root));
     }
     
 }
