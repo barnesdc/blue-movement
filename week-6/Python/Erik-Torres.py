@@ -1,4 +1,4 @@
-# Find Maximum Difference Between a Node and its Descendants in a Binary Tree.
+# Find Maximum Difference Between a Node and its Descendants in a Binary Tree..
 
 class tree_node:
     def __init__(self, key):
