@@ -95,9 +95,7 @@ class Week6:
             print("None")
         else:
             lst = list()
-            master = list()
             self._printNodePaths(node, lst)
-        return master
             
     
     def _printNodePaths(self, node, lst):
