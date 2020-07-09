@@ -26,8 +26,10 @@ public class Week6 {
         if(ancestor == null){
             return maxDifference;
         } else{
-            int difference = Math.abs(parent.val - ancestor.val); //difference between current ancestor and parent node
-            maxDifference = Math.max(maxDifference, difference); //change maxDifference if the difference calculated is greater
+	    //Assumed that question wanted the abs value of the difference but it works without the maximum difference
+            //int difference = Math.abs(parent.val - ancestor.val); //difference between current ancestor and parent node
+            int difference = parent.val - ancestor.val;
+	    maxDifference = Math.max(maxDifference, difference); //change maxDifference if the difference calculated is greater
             
             //find the maxDifference in the left subtree of currentAncestor
             int maxDifferenceLeft = maxParentAncestorDiff(parent, ancestor.left, maxDifference); 
