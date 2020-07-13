@@ -1,4 +1,4 @@
-package bootcamp-2020.1;
+
 import java.util.LinkedList;
 
 class LinkedListAsignment{

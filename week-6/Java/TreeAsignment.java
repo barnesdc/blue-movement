@@ -77,7 +77,7 @@ public static void Flip(Node n){
 		tb.root.right.left.left=new Node(8);
 		tb.root.right.left.right=new Node(9);
 
-    printRoutes(tb);
+   Sytem.out.println(Flip(tb.root.left));
 
   }
 }
