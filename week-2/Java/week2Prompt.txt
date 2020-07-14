@@ -1,0 +1,100 @@
+********************** Palindrome Prompt ***********************************
+
+//Given a string, find the longest substring which is palindrome. For example, if the given string is "ababad", the output should be "ababab".
+public class Solution {
+  static String palindrome (String s) { 
+    // empty case
+    String empty = "";
+    if (s.length() == 0) {
+      return empty;
+    }
+    //first atemmpt to use StringBuilder but produce multiple errors
+    //StringBuilder build = new StringBuilder();
+    
+    //empty string to put answer in to return 
+    String word = "";
+
+    // separate pointers to compare characters w/o changing i and j
+    int x;
+    int y;
+      for (int i = 0; (i < s.length()); i++) {
+        for (int j = (s.length() - 1); j > 0; j--) {
+          //compare front and back char
+          //find substrings for each letter and compare max
+          x = i;
+          y = j;
+          word = s.substring(x, y);
+          while (x < y) {
+              if (word.charAt(x) != word.charAt(y)) {
+              break;
+              //build.append(s.charAt(i));
+              } else {
+              x++;
+              y--;
+              }
+          }   
+        } 
+      }
+      return word;
+    //return build.toString();  
+    }
+}
+
+class Main {
+  public static void main(String[] args) {
+
+    String s = "ababa";
+
+    String answer = Solution.palindrome(s);
+
+    System.out.println(answer);
+  }
+}
+
+********************** Permuatation Prompt ***********************************
+
+//Given a string str, the task is to print all the permutations of str. A permutation is an arrangement of all or part of a set of objects, with regard to the order of the arrangement. For example, if given "abb", the output should be "abb abb bab bba bab bba"
+
+// ****** first thoughts ******
+//take string ad use while loop
+//constuct a Stringbuilder
+// use contains method 
+public class Solution {
+  static String permuation (String s) {
+
+    //empty case
+    String empty = "";
+    if (s.length() == 0) {
+      return empty;
+    }
+    
+    String answer = "";
+    for (int i = 0; i < s.length(); i++) {
+
+      //current chat
+      char a = s.charAt(i); 
+
+      // construction of words with current char in different order 
+      String x = s.substring(0, i) + a + s.substring(i + 1);
+
+      String y = s.substring(0, i) + s.substring(i + 1) + a;
+
+      String z = a + s.substring(0, i) + s.substring(i + 1);
+
+      //add each newly constructed word into answer to return all permutations
+      answer = answer + " " +  x + " " +  y + " " + z;
+    }
+    return answer;
+  }
+}
+
+class Main {
+  public static void main(String[] args) {
+    System.out.println("Hello world!");
+
+  String s = "abbyb";
+
+  System.out.println(Solution.permuation(s));
+
+  }
+}
