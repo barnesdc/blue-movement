@@ -60,18 +60,18 @@ public static void main(String[] args) {
     LinkedList<Integer> L1 = new LinkedList<Integer>();
     LinkedList<Integer> L2 = new LinkedList<Integer>();
     L1.add(7);
-    // L1.add(6);
-    // L1.add(3);
+    L1.add(6);
+    L1.add(3);
     L2.add(7);
-    // L2.add(4);
-    // L2.add(2);
+    L2.add(4);
+    L2.add(2);
  System.out.println(sumLinkedList(L1, L2)); //Only works for linked list of equal size
 
-    // LinkedList<String> sLinkedList = new LinkedList<String>();
-    // String testString = "I Love Geeks For Geeks";
-    // for (int i =0; i <testString.length(); i++ )
-    // sLinkedList.add(String.valueOf(testString.charAt(i)));
-    // System.out.println(rLinkedList(sLinkedList));// Didn't test extnsively but should work for most cases.
+    LinkedList<String> sLinkedList = new LinkedList<String>();
+    String testString = "I Love Geeks For Geeks";
+    for (int i =0; i <testString.length(); i++ )
+    sLinkedList.add(String.valueOf(testString.charAt(i)));
+    System.out.println(rLinkedList(sLinkedList));// Didn't test extnsively but should work for most cases.
         
     } 
 }
