@@ -4,32 +4,39 @@ from itertools import permutations
 import argparse
 
 
-#Define a funtion isPalendrome() to do a check on a string
-def isPalindrome(s):
-
-    #reverse the string then check if its equal
-    reverse = s[::-1]
-
-    if reverse == s:
-        return True
-
-    else:
-        return False
-
 #Now use isPalindrome() to check a substring in this function
 def longestPal(s):
 
     longest = ''
-    sub = ''
+    max = 1
 
-    for ch in s:
+    start = 0
 
-        #add one character at a time to sub then check
-        sub += ch
+    low = 0
+    high = 0
 
-        if isPalindrome(sub):
-            longest = sub
+    for i in range(1, len(s)):
+        low = i - 1
+        high = i
 
+        while low >= 0 and high < len(s) and s[low] == s[high]:
+            if high - low + 1 > max:
+                start = low
+                max = high - low + 1
+            low -= 1
+            high += 1
+
+        low = i - 1
+        high = i + 1
+        while low >= 0 and high < length and s[low] == s[high]:
+            if high - low + 1 > max:
+                start = low
+                max = high - low + 1
+
+            low -= 1
+            high += 1
+
+    longest = s[start:start + max]
     return longest
 
 

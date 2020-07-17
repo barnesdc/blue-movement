@@ -107,4 +107,4 @@ def main():
 
     print()
     mirror(root)
-    printTree(rootot)
+    printTree(root)

@@ -89,7 +89,7 @@ def getLists(str):
 
 def main():
 
-    L1 = '5 -> 6 -> 3 -> NULL'
+    L1 = '5 -> 6 -> NULL'
     L2 = '8 -> 4 -> 2 -> NULL'
     L3 = 'I-> ->l->o->v->e-> ->G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s->NULL'
     L4 = 'C->a->r->s-> ->a->r->e-> ->c->o->o->l->NULL'
@@ -102,12 +102,12 @@ def main():
     for ch in str(sum):
         sumlist.addNode(ch)
 
-    #sumlist.printList()
-    arr = getLists(L3[:-4])
-    arr4 = getLists(L4[:-4])
-    printArray(arr)
-    print()
-    printArray(arr4)
+    sumlist.printList()
+    #arr = getLists(L3[:-4])
+    #arr4 = getLists(L4[:-4])
+    #printArray(arr)
+    #print()
+    #printArray(arr4)
 
 if __name__ == '__main__':
     main()
