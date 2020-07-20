@@ -82,7 +82,7 @@ void printTree(Node*root){
   printTree(root->right);
 }
 
-//Prompt 1 -----------------------------------------------
+//Prompt 1 ---------------------------------------------------
 //check if node is a leaf
 bool isLeaf(Node*root){
   if(root->left == NULL &&
@@ -90,7 +90,8 @@ bool isLeaf(Node*root){
        return true;
      }
   else return false;
-}//find minimum descendant
+}
+//find minimum descendant
 void findMin(Node*root, int &min){
   if(root == NULL) return;
   else
@@ -115,7 +116,7 @@ void maxDiff(Node*root, int curr_max, int &truemax){
   return;
 }
 
-//Prompt 2 -----------------------------------------------
+//Prompt 2 ---------------------------------------------------
 void leaf2roothelper(Node*root, deque<int> route){
     if (root == NULL)
       return;
@@ -137,7 +138,7 @@ void leaf2root(Node*root){
     leaf2roothelper(root, route);
 }
 
-//Prompt 3 -----------------------------------------------
+//Prompt 3 ---------------------------------------------------
 void swap(Node*root){
   Node* swapper =  root->right;
   root->right = root->left;
