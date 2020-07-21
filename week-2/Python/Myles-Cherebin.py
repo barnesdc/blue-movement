@@ -1,3 +1,5 @@
+import argparse
+
 #prompt 1
 def isPalindrome(str,length):
   split = length//2
@@ -39,7 +41,7 @@ def palindrome(str):
 
             occ -= 1
 
-    print(string)
+    return(string)
 
 
 
@@ -62,3 +64,36 @@ def permuted(str):
     length = len(list_str)
 
     perm_helper(list_str,0,length-1)
+
+
+
+if __name__ == '__main__':
+    # test palindrome
+    check = palindrome("aba")
+    assert check == "aba"
+
+    check = palindrome("ekke")
+    assert check == "ekke"
+
+    check = palindrome("mmmmm")
+    assert check == "mmmmm"
+
+    check = palindrome("aaaa")
+    assert check == "aaaa"
+
+
+    check = palindrome("aslasmssmsalsa")
+    assert check == "aslasmssmsalsa"
+
+    check = palindrome("hannahbradyhannah")
+    assert check == "hannah"
+
+    check = palindrome("ababbab")
+    assert check == "babbab"
+
+    print("done with palindrome tests")
+
+    permuted("123")
+    permuted("abcd")
+
+    print("done with permutation tests")
