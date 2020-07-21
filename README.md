@@ -101,6 +101,9 @@ Provides GitHub shortcuts and paired/shared programming FREE
   - They also offer a educational licenses to students and teachers which provides a suite of tools suppporitng various languages for FREE!!!
   - [Educational License](https://www.jetbrains.com/community/education/#students)
 
+- Repl.it
+  - [![Run on Repl.it](https://repl.it/badge/github/n-cybergypsy/bootcamp-2020.1)](https://repl.it/github/n-cybergypsy/bootcamp-2020.1)
+
 #### Critical Thinking / Problem Solving
 
 [![Problem Solving Technique #1 Video](http://img.youtube.com/vi/lD-LuK_VGZI/0.jpg)](http://www.youtube.com/watch?v=lD-LuK_VGZI "Problem Solving Technique #1")
