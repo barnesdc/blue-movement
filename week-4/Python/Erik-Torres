@@ -1,0 +1,179 @@
+# Given two numbers represented by two linked lists, write a function that returns sum list. The sum list is linked list representation of addition of two input numbers.
+
+# class for a node in linked list
+class ListNode:
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+
+# method that creates a linked list-1
+def createList1():
+	head = ListNode(5)
+	head.next = ListNode(6)
+	head.next.next = ListNode(3)
+	return head
+
+
+# method that creates a linked list-2
+def createList2():
+	head = ListNode(8)
+	head.next = ListNode(4)
+	head.next.next = ListNode(2)
+	return head
+
+
+# method that prints the linked list
+def printList(head):
+	while head is not None:
+		print(head.data, end=' -> ')
+		head = head.next
+	print("NULL")
+
+
+# method that reverses the linked list
+def reverseList(head):
+	if head is None or head.next is None:
+		return head
+	prev_node = None
+	curr_node = head
+	next_node = head.next
+	while curr_node is not None:
+		next_node = curr_node.next
+		curr_node.next = prev_node
+		prev_node = curr_node
+		curr_node = next_node
+	return prev_node
+
+
+# method that performes the sum of 2 linkedlists
+def get_sum(list1, list2):
+	head1 = reverseList(list1)
+	head2 = reverseList(list2)
+
+	temp1 = head1
+	temp2 = head2
+
+	head = ListNode(0)
+	prev_node = head
+	carry = 0
+	while head1 is not None or head2 is not None:
+		val1 = 0
+		val2 = 0
+		if head1 is not None:
+			val1 = head1.data
+			head1 = head1.next
+		if head2 is not None:
+			val2 = head2.data
+			head2 = head2.next
+		total = val1 + val2 + carry
+		node = ListNode(total % 10)
+		carry = int(total / 10)
+		prev_node.next = node
+		prev_node = node
+	if (carry == 1):
+		prev_node.next = ListNode(1)
+
+	list1 = reverseList(temp1)
+	list2 = reverseList(temp2)
+
+	return reverseList(head.next)
+
+
+# test case
+list1 = createList1()
+list2 = createList2()
+printList(list1)
+printList(list2)
+sum_list = get_sum(list1, list2)
+printList(sum_list)
+
+#Given a Linked List which represents a sentence S such that each node represents a letter, the task is to reverse the sentence without reversing individual words.
+
+# class for a node in linked list
+class ListNode:
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+
+# method that creates a linked list
+def createList():
+	head = ListNode('I')
+	head.next = ListNode(' ')
+	head.next.next = ListNode('l')
+	head.next.next.next = ListNode('o')
+	head.next.next.next.next = ListNode('v')
+	head.next.next.next.next.next = ListNode('e')
+	head.next.next.next.next.next.next = ListNode(' ')
+	head.next.next.next.next.next.next.next = ListNode('G')
+	head.next.next.next.next.next.next.next.next = ListNode('e')
+	head.next.next.next.next.next.next.next.next.next = ListNode('e')
+	head.next.next.next.next.next.next.next.next.next.next = ListNode('k')
+	head.next.next.next.next.next.next.next.next.next.next.next = ListNode('s')
+	head.next.next.next.next.next.next.next.next.next.next.next.next = ListNode(' ')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode('f')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode('o')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode('r')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode(' ')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode('G')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode('e')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode('e')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode(
+		'k')
+	head.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next.next = ListNode(
+		's')
+	return head
+
+
+# method that prints the linked list
+def printList(head):
+	while head is not None:
+		print(head.data, end=' -> ')
+		head = head.next
+	print("NULL")
+
+
+# method that reverses the words in list
+def reverseList(words):
+	start = 0
+	end = len(words) - 1
+	while (start < end):
+		temp = words[start]
+		words[start] = words[end]
+		words[end] = temp
+		start += 1
+		end -= 1
+
+
+# method that reverses the words in linked list
+def reverseWords(head):
+	temp = head
+
+	# store entire linked list as a string
+	string = ""
+	while temp is not None:
+		string += temp.data
+		temp = temp.next
+
+	# split the string into words
+	words = string.split(" ")
+
+	# reverse the words in list
+	reverseList(words)
+
+	# join words into a string
+	string = " ".join(words)
+	index = 0
+
+	# add string data into linked list
+	while head is not None:
+		head.data = string[index]
+		index += 1
+		head = head.next
+
+
+head = createList()
+printList(head)
+reverseWords(head)
+printList(head)
