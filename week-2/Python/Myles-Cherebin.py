@@ -1,5 +1,3 @@
-import argparse
-
 #prompt 1
 def isPalindrome(str,length):
   split = length//2
@@ -43,8 +41,6 @@ def palindrome(str):
 
     return(string)
 
-
-
 # prompt 2
 def perm_helper(list_str,first,last):
   if (first == last):
@@ -64,8 +60,6 @@ def permuted(str):
     length = len(list_str)
 
     perm_helper(list_str,0,length-1)
-
-
 
 if __name__ == '__main__':
     # test palindrome
