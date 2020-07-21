@@ -1,4 +1,4 @@
-# Blue Movement Boot Camp
+# Blue Movement Boot Camp 
 
 ## Getting Started
 
