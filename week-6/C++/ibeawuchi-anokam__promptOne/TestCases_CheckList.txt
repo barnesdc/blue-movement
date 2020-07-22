@@ -1,0 +1,36 @@
+//---------------------------------------------------------------
+// Project Title:   Week 4 - Prompt 1                           :
+//---------------------------------------------------------------
+// Subj.:           TEST CASES TO ACCOUNT FOR                   :
+//---------------------------------------------------------------
+✓ 0.1 ▪︎     Check Catch2 Unit Test Framework is setup and works
+ 
+✓ 1.1 ▪︎     Can I call the weekFourPromptOne function?
+
+✓ 2.1 ▪︎     Get an empty List when I pass in two empty Lists,
+            L1 and L2, into the weekFourPromptOne function
+   
+✓ 3.1 ▪︎     Get a non-empty List when I pass in two non-empty
+            integer Lists, L1 and L2, into the
+            weekFourPromptOne function
+            
+✓ 3.2 ▪︎     The nodes of L1 and L2 can ONLY take digits
+            (i.e. integers from 0 - 9) ELSE the function
+            weekFourPromptOne returns an empty List
+          
+✓ 3.3 ▪︎     Get a non-empty List when I pass in two non-empty
+            positive or zero integer Lists, L1 and L2, into the
+            weekFourPromptOne function?
+
+✓ 4.1 ▪︎     Get an empty List when I pass in two non-empty
+            Lists, L1 and L2, into the weekFourPromptOne
+            function where either one or both Lists have a
+            negative integer in it?
+        
+✓ 5.1 ▪︎     The weekFourPromptOne function returns the correct
+            summation Values in it's return List
+    
+
+-------------------------------
+    TOTAL TEST CASES == 7
+-------------------------------
