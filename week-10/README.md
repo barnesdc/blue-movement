@@ -1,4 +1,4 @@
-# Arrarys
+# Group Project Working Sessions
 
 ## Intro
 
