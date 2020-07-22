@@ -28,7 +28,7 @@ class LinkedList {
         }
     }
     public static void main(String[] args) {
-        LinkedList llist = new LinkedList(new int[]{9, 9, 9});
+        LinkedList llist = new LinkedList(new int[]{9, 9});
         LinkedList llist2 = new LinkedList(new int[]{1, 0, 0, 1});
         LinkedList sumList = new LinkedList(new int[]{});
         sumList.head = add(llist, llist2);

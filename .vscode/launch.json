@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - LinkedList",
+            "request": "launch",
+            "mainClass": "LinkedList",
+            "projectName": "bootcamp-2020.1_ff1e0c2c"
+        }
+    ]
+}

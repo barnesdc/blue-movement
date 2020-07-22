@@ -74,7 +74,7 @@ class LinkedCharList {
         return result.head;
     }
     public static void main(String[] args) {
-        LinkedCharList charList = new LinkedCharList("Geeks for Geeks I love");
+        LinkedCharList charList = new LinkedCharList("I love Geeks for Geeks");
         //printList(charList.reverse(charList.head));
         printList(reverseSentence(charList));
     }
