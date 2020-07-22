@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
 
 */
 import java.util.*;
-import java.lang.Integer;
+import java.lang.*;
 
 // Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
 
@@ -36,18 +36,40 @@ class TestClass {
         String[] line1 = s.nextLine().split(" ");
         String[] line2 = s.nextLine().split(" ");
         String[] line3 = s.nextLine().split(" ");
+        int[] totals = new int[Integer.parseInt(line1[0])];
         int total = 0;
-        for(int i = 0; i < line3.length; i++){
-            for(int j = 0; j < line2.length;j++){
-                total+= Integer.parseInt(line2[j]);
-                if(total >= Integer.parseInt(line3[i])){
-                    System.out.println(j+1);
-                    total = 0;
-                    break;
-                }
+        for(int i = 0; i < totals.length; i++){
+        total+= Integer.parseInt(line2[i]);
+            totals[i] = total; 
+    }
+    
+    for(int i = 0; i <Integer.parseInt(line1[1]); i ++){
+        System.out.println(binarySearch(totals,Integer.parseInt(line3[i])));
+    }
+    
+    
+    
+
+
+    }
+    static int binarySearch(int[] totals, int value){
+        if(totals[0] >= value)
+            return 1;
+        int start = 0;
+        int end = totals.length-1;
+        while(start <= end){
+            int middle = (start + end) / 2;
+
+            if(totals[middle] < value){
+                start = middle + 1;
+                if(totals[start] >= value)
+                return start + 1;
             }
+
+            else if(totals[middle] > value)
+                end = middle - 1;
         }
-
-
+        
+        return 0;
     }
 }
