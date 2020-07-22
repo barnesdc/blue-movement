@@ -1,4 +1,4 @@
-# Sorting
+# Group Project Working Sessions / Regex
 
 ## Intro
 
@@ -6,6 +6,14 @@
   - (i.e. firstName-lastName.py)
 
 ## Prompt(s)
+
+## Links
+
+- HR Practice problems
+  - <https://www.hackerrank.com/domains/regex>
+- Python Resources
+- Java Resources
+- C++ Resources
 
 ## Submission
 
