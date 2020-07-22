@@ -39,7 +39,7 @@
         > If you created your fork a while ago be sure to pull upstream changes into your local repository.
         Create a new branch to work on! Branch from master.
     - Push your branch to your fork on Github, the remote origin.
-      - stage changes for push:
+      - stage changes for Push:
   
         `git add .`
 
@@ -51,9 +51,9 @@
 
         `git commit -m "your message"`
 
-      - push your changes:
+      - Push your changes:
 
-        `git push origin [your branch name]`
+        `git Push origin [your branch name]`
 
 #### GitHub How-To and Use
 
