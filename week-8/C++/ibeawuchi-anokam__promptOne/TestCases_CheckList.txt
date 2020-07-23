@@ -1,0 +1,36 @@
+//---------------------------------------------------------------
+// Project Title:   Week 8 - Prompt 1                           :
+//---------------------------------------------------------------
+// Subj.:           TEST CASES TO ACCOUNT FOR                   :
+//---------------------------------------------------------------
+✓ 0.1 ▪︎     Check Catch2 Unit Test Framework is setup and works
+ 
+✓ 1.1 ▪︎     Can I call the stones_love function?
+
+✓ 2.1 ▪︎     Get an empty Set when I pass in an empty N and Q Set
+            into the stones_love function
+            ( i.e.  N := empty  &&  Q := empty  )
+            ( i.e.  N does not meet the requirement: 1 <= N <= 5*10^5 )
+            ( i.e.  Q does not meet the requirement: 1 <= Q <= 5*10^5 )
+            
+✓ 2.2 ▪︎     Get an empty Set when I pass in either an empty N or
+            an empty Q Set into the stones_love function
+            ( i.e.  N := empty  ||  Q := empty  )
+            ( i.e.  N Or Q does not meet the requirement: 1 <= N, Q <= 5*10^5 )
+
+✓ 2.3 ▪︎     Get an empty Set when I pass in N and Q Set
+            into the stones_love function and either or both of their Sets
+            have at least one element that's out of range
+            ( i.e.  N := non-empty  &&  Q := non-empty  )
+            ( i.e.  The element does not exist between 1 <= A[i] <= 10^5 )
+            
+✓ 3.1 ▪︎     Get the correct non-empty Set when I pass in N and Q Set
+            into the stones_love function and both of their
+            elements are all in range
+            ( i.e.  N := non-empty  &&  Q := non-empty  )
+            ( i.e.  The elements exist between 1 <= A[i] <= 10^5 )
+    
+
+-------------------------------
+    TOTAL TEST CASES == 6
+-------------------------------
