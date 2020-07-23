@@ -87,36 +87,31 @@ using namespace std;
 //===========================================================================//
 int repeated_k_times (  vector< int > List,  int k  )
 {
-// Function Definition -
-// Print the Binary Tree with the top of
-// the tree on the left and the bottom of the
-// tree to the right of it.
-//---------------------------------------
     
     //---------------------------------------
     // Variable Declarations                :
     //---------------------------------------
-    map< int, int > freq_table;   // Note: Maps are already SORTED !
+    map< int, int > freq_graph;   // Note: Maps are already SORTED !
     int lowest_val;
     
 
     if( List.size() > 0 ){
         //---------------------------------------
-        // Populate The Frequency Table         :
+        // Populate The Frequency Graph         :
         //---------------------------------------
         for( auto list_val : List ){
 
             // add the count
-            freq_table[ list_val ]++;
+            freq_graph[ list_val ]++;
         }
         //---------------------------------------
-        // SEARCH The Frequency Table for       :
+        // SEARCH The Frequency Graph for       :
         // the lowest value with 'k' frequency  :
         //---------------------------------------
-        // Note: Since The Frequency Table is an
-        // instantation of <map> it is already SORTED!
+        // Note: Since The Frequency Graph is an
+        // instantation of <map>, it is already SORTED!
         lowest_val = -1;
-        for( auto freq_val : freq_table ){
+        for( auto freq_val : freq_graph ){
 
             // Searching the map...
             // If nothing is found for 'k' then
@@ -140,7 +135,7 @@ int repeated_k_times (  vector< int > List,  int k  )
 //                    U N I T    T E S T     C A S E S                       //
 //===========================================================================//
 TEST_CASE(       "GivenAnEmptyList"        ,
-              "[weekSixPromptOne_test]"       )
+              "[weekEightPromptTwo_test]"       )
 {
 // Test Description -
 //
@@ -159,7 +154,7 @@ TEST_CASE(       "GivenAnEmptyList"        ,
     REQUIRE(  repeated_k_times( input, k_val ) == -1   );
 }
 TEST_CASE(       "GivenANonEmptyList"        ,
-              "[weekSixPromptOne_test]"       )
+              "[weekEightPromptTwo_test]"       )
 {
 // Test Description -
 //
