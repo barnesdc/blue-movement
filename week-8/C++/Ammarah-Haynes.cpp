@@ -51,15 +51,15 @@ sample output:
 #include <iostream>
 #include<vector>
 #include<string>
-#include <algortithm>
+#include<algorithm>
 
 
 using namespace std;
 
 int main() {
 	vector<int> list;
-	int num, value, k,
-	int seen = 0;
+	int num, value, k;
+	int count = 1;
 	cin >> num;
 	//cout << num << endl;
 
@@ -78,13 +78,14 @@ int main() {
 	// # of times integer repeats
 	sort(list.begin(), list.end());
 	for(int i = 0; i < num; i++){
-		if(list.at(i) == list.at(i+1))
-
-  /*
-TO FINISH, I WOULD KEEP TRACK OF THE NUMBER OF OCCURRENCES FOR EACH NUMBER, THEN
-COMPARE THAT NUMBER TO K. LASTLY, FIND THE SMALLEST NUMBER THAT OCCURS K # OF TIMES
-  */
-
+    if(list.at(i) == list.at(i+1))
+			count++;
+		else if(count == k){
+				cout << list.at(i);
+				break;
+		}
+		else
+			count = 1;
 	}
 	return 0;
 }
