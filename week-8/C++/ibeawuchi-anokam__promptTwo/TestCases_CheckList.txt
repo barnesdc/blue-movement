@@ -1,0 +1,37 @@
+//---------------------------------------------------------------
+// Project Title:   Week 8 - Prompt 2                           :
+//---------------------------------------------------------------
+// Subj.:           TEST CASES TO ACCOUNT FOR                   :
+//---------------------------------------------------------------
+✓ 0.1 ▪︎     Check Catch2 Unit Test Framework is setup and works
+ 
+✓ 1.1 ▪︎     Can I call the repeated_k_times function?
+
+✓ 2.1 ▪︎     Get a return of -1 when I pass in an empty List
+            and some k value into the repeated_k_times function
+            ( i.e.  List := empty   )
+   
+✓ 3.1 ▪︎     Get a return of -1 when I pass in a non-empty List
+            and some k value where the frequency value cannot be
+            found in the repeated_k_times function
+            ( i.e.  List := non-empty      &&
+                    k value(s) found == 0        )
+            
+✓ 3.2 ▪︎     Get the correct return value when I pass in a
+            non-empty List and some k value where the
+            frequency value is found once in the
+            repeated_k_times function
+            ( i.e.  List := non-empty      &&
+                    k value(s) found == 1        )
+          
+✓ 3.3 ▪︎     Get the correct return value when I pass in a
+            non-empty List and some k value where
+            frequency value is found multiple times in the
+            repeated_k_times function
+            ( i.e.  List := non-empty      &&
+                    k value(s) found >= 1        )
+    
+
+-------------------------------
+    TOTAL TEST CASES == 6
+-------------------------------

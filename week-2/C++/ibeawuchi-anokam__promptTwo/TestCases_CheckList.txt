@@ -1,0 +1,35 @@
+//---------------------------------------------------------------
+// Project Title:   Week 2 - Prompt 2                           :
+//---------------------------------------------------------------
+// Subj.:           TEST CASES TO ACCOUNT FOR                   :
+//---------------------------------------------------------------
+✓ 0   ▪︎     Check Catch2 Unit Test Framework is setup and works.
+ 
+✓ 1   ▪︎     Can I call the str_permutations function?
+
+✓ 2   ▪︎     Return an empty pass-by-reference Set when I
+            pass-by-reference an empty Set into the
+            str_permutations function.
+
+✓ 3   ▪︎     Return a non-empty pass-by-reference Set when I
+            pass-by-reference a non-empty Set into the
+            str_permutations function.
+            
+✓ 4   ▪︎     Make the str_permutations function only allow for
+            ascii[ a-z ] characters Else it will return an empty
+            pass-by-reference Set.
+
+✓ 5   ▪︎     Make sure the str_permutations function returns a
+            non-empty pass-by-reference Set that is then SORTED
+            once it is returned.
+            Check that the str_permutations function returns the
+            correct set of permutations in it's return Set.
+            ( i.e. Sorting allows for me / the user to compare
+              that the return Set matches up with the
+              expected Set                                     )
+    
+
+-------------------------------
+    TOTAL TEST CASES == 6
+-------------------------------
+

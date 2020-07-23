@@ -1,0 +1,78 @@
+//---------------------------------------------------------------
+// Project Title:   Week 2 - Prompt 1                           :
+//---------------------------------------------------------------
+// Subj.:           TEST CASES TO ACCOUNT FOR                   :
+//---------------------------------------------------------------
+.:.[ Begin the UNIT TEST ]
+✓ 0   ▪︎     Check Catch2 Unit Test Framework is setup and works
+ 
+✓ 1   ▪︎     Can I call the longest_palindrome function?
+
+✓ 2   ▪︎     Get an empty Set when I pass in an empty Set,
+            into the longest_palindrome function
+            ( i.e. set size == 0 )
+
+
+//---------------------------------------------------------------
+[ Now that the function works check each of it's components ... ]
+.:.[ DEBUG w/ < iostream > ]
+
+✓ 3.1 ▪︎     longest_palindrome FINDS and STORES all the possible
+            substring(s) that the string Set can make
+            
+✓ 3.2 ▪︎     longest_palindrome FINDS and STORES all the possible
+            palindromic substring(s) that the string Set can make
+
+✓ 3.2 ▪︎     longest_palindrome FINDS the longest possible
+            palindromic substring(s) that the string Set can make
+
+
+//---------------------------------------------------------------
+[ Now that all components of the function are checked ...       ]
+.:.[ Continue the UNIT TEST, where the UPPERCASE and LOWERCASE
+     letters MUST match up ]
+   ( e.g. 'a' != 'A',  'b' != 'B', ...,  etc. )
+
+✓ 4.1 ▪︎     Get a non-empty Set when I pass in a non-empty
+            Set into the longest_palindrome function
+            ( i.e. set size >= 1 )
+        
+✓ 4.2 ▪︎     The longest_palindrome function returns the correct
+            palindrome answers in it's return Set --
+            Given ONLY ascii[ 0-9a-zA-z ] characters
+            ( i.e. it takes in one word at a time )
+            
+✓ 4.3 ▪︎     The longest_palindrome function returns the correct
+            palindrome answers without returning a Set that has
+            no unused indices in it -- Given ONLY
+            ascii[ 0-9a-zA-z ] characters
+            ( i.e. it takes in one word at a time )
+            (i.e. set size == the exact size it needs to produce)
+            
+✓ 4.4 ▪︎        The longest_palindrome function can now ONLY take
+            in ascii[ 0-9a-zA-z ], and the sentence characters
+            ascii[ .?!', ].
+                It will then pop out the sentence characters
+            ascii[ .?!', ] characters, leaving only the
+            ascii[ 0-9a-zA-z ] characters.
+                It then returns the correct palindrome answers
+            without returning a Set that has no unused indices in
+            it.
+            ( i.e. it takes in one sentence or a word )
+            (i.e. set size == the exact size it needs to produce)
+            ( e.g. TOP SPOT ==> TOPSPOT )
+
+//---------------------------------------------------------------
+[ Now that all components of the function are checked ...       ]
+.:.[ Continue the UNIT TEST, allow UPPERCASE and LOWERCASE
+     letters to be the same ]
+     
+✓ 5   ▪︎     The longest_palindrome function treats uppercase and
+            lowercase letters as the same thing --
+            i.e. it is not case-sensitive
+            ( i.e. 'a' == 'A',  'b' == 'B', ...,  etc. )
+
+
+-------------------------------
+    TOTAL TEST CASES == 11
+-------------------------------
