@@ -1,0 +1,104 @@
+********************************SumLinkedList************************************
+
+import java.util.LinkedList;
+import java.util.*;
+
+class SumLinkedList {
+
+//perfrom additon similar to on paper, carry over 1 if sum is over 10 from current element to previos element and perfrom operation until it reaches the header
+Node head; 
+
+  static class Node { 
+    int data; 
+    Node next; 
+    Node(int d) { 
+        data = d; 
+        next = null; 
+    } // Constructor 
+  } 
+
+  public static LinkedList sum (LinkedList L1, LinkedList L2 ) {
+
+    //make returning LinkedList
+    LinkedList sumList = new LinkedList();
+    //varibales to caluclte sum and remanider to carry over if sum is over 10
+    int sum;
+    int rem;
+
+    for(int i = (L1.size() - 1); i > -1; i--) {
+      
+      //extract corresponding elements to add 
+      sum = L1.get(i) + L2.get(i);
+
+      //check is sum is over ten, then calcuate remainder to add to list and carry over one to next additon 
+      if (sum >= 10) {
+        rem = sum % 10;
+        sumList.add(rem);
+        //add one to next addition traversing LinkedList backwards
+        L1.get(i + 1) = L1.get(i)++;
+      } else {
+        sumList.add(sum);
+      }
+    }
+    return sumList;
+  }
+
+}
+
+****************************************ReverseLinkedList******************************
+import java.util.LinkedList;
+import java.util.*;
+//Given a Linked List which represents a sentence S such that each node represents a letter, the task is to reverse the sentence without reversing individual words.
+
+/*- Example: 
+  > Input:  I-> ->l->o->v->e-> ->G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s->NULL
+  > Output: G->e->e->k->s-> ->f->o->r-> ->G->e->e->k->s-> ->l->o->v->e-> ->I->NULL
+*/
+class reverse {
+
+class Node {
+      char data;
+      Node next;
+
+      Node (char c) {
+        c = data;
+        next = null;
+      }
+    }
+
+  public static void ReverseLinkedList (Node link) {
+    //traverse through Linked List, add each element to stringbuilder to make word, reverse word, then add into new linked list. 
+    
+    StringBuilder phrase = new StringBuilder();
+    Node link = new Node();
+
+    //traverse through linked list and append to phrase 
+    while (link.next != null) { 
+      phrase.append(link.data);
+      link = link.next;
+    }
+    //reverse phrase
+    phrase.reverse();
+
+    //change phrase to String to allow for loop iteration, and extract characters to add to linked list.
+    String word = phrase.toString();
+    char s;
+
+    //new linked list to print out answer
+    Node answer = new Node();
+    Node forward = answer;
+    answer.next = null;
+
+    for(int i = 0; i < word.length(); i++) { 
+      s = word.charAt(i);
+
+      answer.data = s;
+
+      while (answer.next != null) {
+        System.out.print(answer.data + "->");
+        forward = forward.next;
+        forward.next = answer;
+      }
+    }
+  }
+}
