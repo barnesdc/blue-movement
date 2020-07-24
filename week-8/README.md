@@ -2,10 +2,15 @@
 
 ## Intro
 
-- Before you start working, make sure the filename is in format:
-  - (i.e. firstName-lastName.py)
+- Before you start working:
+  - make sure the filename is in format (i.e. firstName-lastName.py)
+  - make sure your branch is in format (i.e. firstName-lastName-week-8)
+  - make sure you are able to demo your solution
 
 ## Prompt(s)
+  - Problem 1 (Easy): https://www.hackerearth.com/practice/algorithms/searching/binary-search/practice-problems/algorithm/stones-love/
+  - Problem 2 (Medium): https://www.hackerearth.com/practice/algorithms/searching/linear-search/practice-problems/algorithm/repeated-k-times/
+
 
 ## Links
 
