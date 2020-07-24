@@ -1,33 +1,94 @@
-def palindrome (): #function name
-  word = input(" What is your word? ")
-  length=len(word)
-  savedPalindrome=""
+#Allen Simmons
+#Week 4 Reverse_Linked List
 
-  for letter in range(0,length):
-  # length= len(word)
-    for endLetter in range(length,0,-1):#starts at the end
-      wordreg =  word[letter:endLetter]
-      #starts in the beginning 'letter'=checks 
-      #the end letter to see if it is a   #palindrome
-      wordrev =  wordreg[::-1]#start:stop:increment(step)
-      if wordreg == wordrev:
-        #print (" Your word is a palindrome ")
-        if len(savedPalindrome)<len(wordreg):
-          savedPalindrome=wordreg
-      #else:
-        #print (" Your word is not a palindrome ")
-  return savedPalindrome
+class Node:
+    def __init__(self, data): #constructors
+        self.data = data
+        self.next = None
 
-#endingPalindrome=palindrome()
-#print(endingPalindrome)
 
-def permutation():
-    from itertools import permutations
-    string=input("Insert a string: ")
-    allpermutations= list(permutations(string))
+class LinkedList:
+    def __init__(self):
+        self.head = None #within Linkedlist is the head
 
-    for i in allpermutations:
-        i="".join(i)
-        print(i)
+    def reverse(self):
+        if self.head is None:
+            return
 
-permutation()
+        word_start = self.head
+        sentence_end = None
+        sentence_start = None
+        temp = self.head
+
+        while temp is not None and temp.data != ' ':
+            sentence_end = temp
+            temp = temp.next
+
+
+        if temp is None:
+            return
+
+        while temp is not None:
+            temp_next = temp.next
+            temp.next = word_start
+            word_start = temp
+            prev = None
+            temp = temp_next
+            sentence_start = temp
+
+            while temp is not None and temp.data != ' ':
+                prev = temp
+                temp = temp.next
+            prev.next = word_start
+            word_start = sentence_start
+
+            self.head = sentence_start
+            sentence_end.next = None
+
+    def push(self, data):
+        new_node = Node(data)
+        if self.head is None:
+            self.head = new_node
+            return
+        temp = self.head
+        while temp.next is not None:
+            temp = temp.next
+        temp.next = new_node
+
+    def printList(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.data + "->", end="")
+            temp = temp.next
+        print('NULL')
+
+llist = LinkedList()
+llist.push('I')
+llist.push(' ')
+llist.push('L')
+llist.push('O')
+llist.push('V')
+llist.push('E')
+llist.push(' ')
+llist.push('G')
+llist.push('E')
+llist.push('E')
+llist.push('K')
+llist.push('S')
+llist.push(' ')
+llist.push('F')
+llist.push('O')
+llist.push('R')
+llist.push(' ')
+llist.push('G')
+llist.push('E')
+llist.push('E')
+llist.push('K')
+llist.push('S')
+
+print("Given Linked List")
+llist.printList()
+print("               ")
+llist.reverse()
+print("Reverse list")
+llist.printList()
