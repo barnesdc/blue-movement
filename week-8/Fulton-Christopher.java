@@ -1,4 +1,4 @@
-package com.company;/* IMPORTANT: Multiple classes and nested static classes are supported */
+/* IMPORTANT: Multiple classes and nested static classes are supported */
 
 /*
  * uncomment this if you want to read input.
@@ -12,6 +12,24 @@ import java.io.InputStreamReader;
 
 // Warning: Printing unwanted or ill-formatted data to output will cause the test cases to fail
 class Main {
+
+
+    static int lowestIntLinearSearch(int[] values, int k){
+        Map<Integer,Integer> elements = new HashMap<Integer,Integer>();
+        int minInt = Integer.MAX_VALUE;
+        for(int value: values){
+            if(!elements.containsKey(value))
+                elements.put(value,1);
+            else {
+                elements.put(value, elements.get(value) + 1);
+                if(value < minInt && elements.get(value) == k )
+                    minInt = value;
+            }
+
+
+        }
+        return  minInt;
+    }
 
     static int binarySearch(int[] totals, int value){
         if(totals[0] >= value)
@@ -41,7 +59,8 @@ class Main {
             totals[i] = total;
         }
         for (int query : queries) System.out.println(binarySearch(totals, query));
-
+        int[] N2 = {2,2,1,3,1};
+        System.out.println(lowestIntLinearSearch(N2, 2));
     }
 
 
