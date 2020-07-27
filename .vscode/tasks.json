@@ -8,7 +8,7 @@
             "type": "shell",
             "command": "g++",
             "args": [
-                "./week-4/C++/daijon-bereolacarson.cpp",
+                "./week-8/C++/daijon-bereolacarson.cpp",
                 "-o",
                 "${workspaceFolderBasename}"
             ],
