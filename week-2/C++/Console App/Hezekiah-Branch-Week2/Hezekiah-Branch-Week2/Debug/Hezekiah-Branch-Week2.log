@@ -1,0 +1,5 @@
+﻿  Hezekiah-Branch-Week2.cpp
+C:\Users\hezek\Documents\IBMBootcamp\bootcamp-2020.1\week-2\C++\Console App\Hezekiah-Branch-Week2\Hezekiah-Branch-Week2\Hezekiah-Branch-Week2.cpp(149,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\hezek\Documents\IBMBootcamp\bootcamp-2020.1\week-2\C++\Console App\Hezekiah-Branch-Week2\Hezekiah-Branch-Week2\Hezekiah-Branch-Week2.cpp(150,21): warning C4018: '<': signed/unsigned mismatch
+  LINK : C:\Users\hezek\Documents\IBMBootcamp\bootcamp-2020.1\week-2\C++\Console App\Hezekiah-Branch-Week2\Debug\Hezekiah-Branch-Week2.exe not found or not built by the last incremental link; performing full link
+  Hezekiah-Branch-Week2.vcxproj -> C:\Users\hezek\Documents\IBMBootcamp\bootcamp-2020.1\week-2\C++\Console App\Hezekiah-Branch-Week2\Debug\Hezekiah-Branch-Week2.exe
